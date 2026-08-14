@@ -25,8 +25,8 @@
         .book-container {
             position: relative;
             width: 100%;
-            max-width: 400px;
-            height: 550px;
+            max-width: 550px;
+            height: 700px;
             perspective: 1000px;
         }
 
@@ -44,7 +44,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 50px 40px;
+            padding: 60px 50px;
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -85,51 +85,51 @@
 
         .book-top-ornament {
             position: absolute;
-            top: 20px;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 20px;
+            width: 140px;
+            height: 25px;
             opacity: 0.2;
         }
 
         .book-bottom-ornament {
             position: absolute;
-            bottom: 20px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%) scaleY(-1);
-            width: 120px;
-            height: 20px;
+            width: 140px;
+            height: 25px;
             opacity: 0.2;
         }
 
         .book-corner {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             opacity: 0.15;
         }
 
         .book-corner.tl {
-            top: 12px;
-            left: 12px;
+            top: 15px;
+            left: 15px;
         }
 
         .book-corner.tr {
-            top: 12px;
-            right: 12px;
+            top: 15px;
+            right: 15px;
             transform: scaleX(-1);
         }
 
         .book-corner.bl {
-            bottom: 12px;
-            left: 12px;
+            bottom: 15px;
+            left: 15px;
             transform: scaleY(-1);
         }
 
         .book-corner.br {
-            bottom: 12px;
-            right: 12px;
+            bottom: 15px;
+            right: 15px;
             transform: scale(-1);
         }
 
@@ -145,53 +145,53 @@
 
         .book-title {
             font-family: 'Italianno', cursive;
-            font-size: 3.5em;
+            font-size: 4.5em;
             color: #2b1d12;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 400;
         }
 
         .book-subtitle {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #3a2415;
             font-style: italic;
             letter-spacing: 0.1em;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-transform: uppercase;
         }
 
         .book-divider {
-            width: 80px;
+            width: 100px;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(141, 79, 40, 0.6), transparent);
-            margin: 20px auto 30px;
+            margin: 25px auto 35px;
         }
 
         .book-tagline {
             font-family: 'Caveat', cursive;
-            font-size: 1.4em;
+            font-size: 1.6em;
             color: #2b1d12;
-            margin: 20px 0;
+            margin: 25px 0;
             font-weight: 500;
         }
 
         .book-tags {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin: 25px 0 30px;
+            gap: 10px;
+            margin: 30px 0 35px;
             flex-wrap: wrap;
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #3a2415;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 14px 45px;
+            padding: 16px 50px;
             background: linear-gradient(135deg, #3a2415, #5b3a22);
             color: #f5e6d3;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1.05em;
             letter-spacing: 0.1em;
             border: 2px solid #2b1d12;
             transition: all 0.3s ease;
@@ -207,10 +207,33 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .book-container {
-                max-width: 350px;
-                height: 480px;
+                max-width: 450px;
+                height: 600px;
+            }
+
+            .book {
+                padding: 50px 40px;
+            }
+
+            .book-title {
+                font-size: 3.8em;
+            }
+
+            .book-subtitle {
+                font-size: 1.05em;
+            }
+
+            .book-tagline {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .book-container {
+                max-width: 100%;
+                height: 550px;
             }
 
             .book {
@@ -218,7 +241,7 @@
             }
 
             .book-title {
-                font-size: 2.8em;
+                font-size: 3.2em;
             }
 
             .book-subtitle {
@@ -227,6 +250,11 @@
 
             .book-tagline {
                 font-size: 1.2em;
+            }
+
+            .cta-button {
+                font-size: 0.95em;
+                padding: 12px 40px;
             }
         }
     </style>
