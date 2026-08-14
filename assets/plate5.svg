@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deskWood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#463124" />
+      <stop offset="60%" stop-color="#322217" />
+      <stop offset="100%" stop-color="#24170f" />
+    </linearGradient>
+    <linearGradient id="sketchPaper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbf0" />
+      <stop offset="100%" stop-color="#eddcc4" />
+    </linearGradient>
+    <linearGradient id="penBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3d2b1f" />
+      <stop offset="40%" stop-color="#8a532d" />
+      <stop offset="70%" stop-color="#b47844" />
+      <stop offset="100%" stop-color="#2b1a0e" />
+    </linearGradient>
+    <linearGradient id="nibGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#fff2a8" />
+      <stop offset="100%" stop-color="#aa820a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Wooden Studio Desk -->
+  <rect width="600" height="450" fill="url(#deskWood)" />
+
+  <!-- Open Handmade Sketchbook Page angled on desk -->
+  <g transform="translate(270, 235) rotate(-5)">
+    <!-- Book drop shadow -->
+    <rect x="-210" y="-160" width="410" height="310" rx="6" fill="#0c0704" opacity="0.65" filter="blur(12px)" />
+    
+    <!-- Open Book Spread -->
+    <rect x="-205" y="-155" width="400" height="300" rx="4" fill="url(#sketchPaper)" />
+    <!-- Spine center fold shadow -->
+    <rect x="-10" y="-155" width="20" height="300" fill="url(#sketchPaper)" />
+    <line x1="0" y1="-155" x2="0" y2="145" stroke="#bda080" stroke-width="2" />
+    <rect x="-25" y="-155" width="50" height="300" fill="black" opacity="0.08" />
+
+    <!-- Left Page: Botanical Pen & Ink Drawing -->
+    <g transform="translate(-100, -10)" stroke="#4a301f" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Botanical study sketch -->
+      <path d="M-50,80 C-40,20 -10,-40 10,-80" stroke-width="2" />
+      <path d="M-30,40 C-10,25 20,20 40,5 C20,10 -10,25 -30,40 Z" fill="#8c9c6f" fill-opacity="0.3" stroke-width="1.2" />
+      <path d="M-15,-10 C5,-25 35,-30 55,-45 C35,-40 5,-25 -15,-10 Z" fill="#8c9c6f" fill-opacity="0.3" stroke-width="1.2" />
+      <path d="M0,-50 C20,-65 40,-75 50,-95 C35,-85 15,-70 0,-50 Z" fill="#8c9c6f" fill-opacity="0.3" stroke-width="1.2" />
+      <!-- Organic hatching & notes -->
+      <line x1="-70" y1="95" x2="-20" y2="95" stroke-width="0.9" opacity="0.7" />
+      <line x1="-70" y1="105" x2="-35" y2="105" stroke-width="0.9" opacity="0.7" />
+      <line x1="-70" y1="115" x2="-10" y2="115" stroke-width="0.9" opacity="0.7" />
+    </g>
+
+    <!-- Right Page: Organic Watercolor Swatches & Color Wash -->
+    <g transform="translate(100, -20)">
+      <!-- Terra-cotta swatch -->
+      <ellipse cx="-40" cy="-60" rx="30" ry="22" fill="#c86d42" opacity="0.6" filter="blur(2px)" />
+      <ellipse cx="-40" cy="-60" rx="20" ry="14" fill="#a44b24" opacity="0.7" />
+      <!-- Ochre swatch -->
+      <ellipse cx="30" cy="-45" rx="35" ry="25" fill="#dfab43" opacity="0.55" filter="blur(2px)" />
+      <ellipse cx="30" cy="-45" rx="22" ry="16" fill="#bf8521" opacity="0.65" />
+      <!-- Olive green swatch -->
+      <ellipse cx="-15" cy="15" rx="36" ry="24" fill="#6f8251" opacity="0.55" filter="blur(2px)" />
+      <ellipse cx="-15" cy="15" rx="24" ry="16" fill="#4d6132" opacity="0.65" />
+      
+      <!-- Handwritten calligraphy note -->
+      <path d="M-60,75 Q-40,68 -20,74 T20,72 T60,75" stroke="#7a3a17" stroke-width="1.4" fill="none" />
+      <path d="M-55,95 Q-30,88 -10,93 T35,90 T70,95" stroke="#7a3a17" stroke-width="1.4" fill="none" />
+      <path d="M-40,115 Q-10,110 20,114 T50,112" stroke="#7a3a17" stroke-width="1.4" fill="none" />
+    </g>
+  </g>
+
+  <!-- Brass / Mahogany Luxury Fountain Pen resting on edge -->
+  <g transform="translate(430, 310) rotate(-48)">
+    <!-- Pen Shadow -->
+    <rect x="-8" y="10" width="16" height="230" rx="8" fill="#080503" opacity="0.7" filter="blur(6px)" />
+    <!-- Pen Barrel -->
+    <rect x="-7" y="30" width="14" height="190" rx="5" fill="url(#penBody)" stroke="#1a0f07" stroke-width="1" />
+    <!-- Gold Ring Bands -->
+    <rect x="-7.5" y="30" width="15" height="6" fill="url(#nibGold)" />
+    <rect x="-7.5" y="90" width="15" height="5" fill="url(#nibGold)" />
+    <rect x="-7.5" y="210" width="15" height="6" fill="url(#nibGold)" />
+    <!-- Pen Grip Section -->
+    <polygon points="-6,30 6,30 4,5 -4,5" fill="#1b120c" />
+    <!-- Gold Fountain Pen Nib -->
+    <polygon points="-5,5 5,5 0,-25" fill="url(#nibGold)" stroke="#876606" stroke-width="0.8" />
+    <line x1="0" y1="5" x2="0" y2="-18" stroke="#332402" stroke-width="0.9" />
+    <circle cx="0" cy="-6" r="1.3" fill="#332402" />
+  </g>
+
+  <!-- Scattered vintage brass paperclips & artistic ink drops -->
+  <g transform="translate(90, 80) rotate(18)">
+    <path d="M0,0 L0,35 C0,42 12,42 12,35 L12,8 C12,3 6,3 6,8 L6,30" fill="none" stroke="#d5b060" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+  <!-- Fine ink splatters on wood -->
+  <g fill="#21150e" opacity="0.6">
+    <circle cx="500" cy="90" r="3" />
+    <circle cx="510" cy="98" r="1.5" />
+    <circle cx="494" cy="102" r="1" />
+    <circle cx="110" cy="370" r="2.5" />
+    <circle cx="120" cy="362" r="1.2" />
+  </g>
+
+  <rect x="0" y="0" width="600" height="450" fill="none" stroke="#68472f" stroke-width="3" opacity="0.35" />
+</svg>

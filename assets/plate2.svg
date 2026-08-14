@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="natureBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ece5d5" />
+      <stop offset="50%" stop-color="#ded8c4" />
+      <stop offset="100%" stop-color="#ccbe9f" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="40%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fff8e8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#cbb58c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#697a48" />
+      <stop offset="100%" stop-color="#3c4927" />
+    </linearGradient>
+    <linearGradient id="petalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf4e3" />
+      <stop offset="100%" stop-color="#e0a96d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="450" fill="url(#natureBg)" />
+  <circle cx="240" cy="140" r="220" fill="url(#sunGlow)" />
+
+  <!-- Mountain Silhouettes in background -->
+  <path d="M0,320 Q120,220 280,260 T600,210 L600,450 L0,450 Z" fill="#989c82" opacity="0.35" />
+  <path d="M0,360 Q180,270 340,310 T600,290 L600,450 L0,450 Z" fill="#717a5b" opacity="0.4" />
+
+  <!-- Botanical Stems & Leaves -->
+  <!-- Main stem 1 -->
+  <path d="M220,450 C230,340 250,220 300,140" fill="none" stroke="#48552f" stroke-width="4.5" stroke-linecap="round" />
+  <!-- Side branch -->
+  <path d="M250,300 C290,260 360,250 400,240" fill="none" stroke="#48552f" stroke-width="3" stroke-linecap="round" />
+  <path d="M235,360 C180,330 140,310 110,290" fill="none" stroke="#48552f" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Leaves along branches -->
+  <!-- Left leaves -->
+  <path d="M235,360 C190,340 160,320 150,290 C180,295 210,325 235,360 Z" fill="url(#leafGrad)" opacity="0.9" />
+  <path d="M170,305 C130,290 100,270 90,245 C120,250 150,275 170,305 Z" fill="url(#leafGrad)" opacity="0.85" />
+  <!-- Right leaves -->
+  <path d="M260,280 C300,250 340,245 370,225 C340,250 300,275 260,280 Z" fill="url(#leafGrad)" opacity="0.9" />
+  <path d="M310,230 C350,200 390,195 420,175 C390,200 350,225 310,230 Z" fill="url(#leafGrad)" opacity="0.85" />
+  <path d="M275,200 C310,170 330,150 345,130 C325,155 295,180 275,200 Z" fill="url(#leafGrad)" opacity="0.9" />
+
+  <!-- Delicate Wildflower Blossom (Echinacea / Wild Aster style) -->
+  <g transform="translate(300, 140)">
+    <!-- Center seed head cone -->
+    <ellipse cx="0" cy="0" rx="22" ry="18" fill="#78421c" />
+    <ellipse cx="-2" cy="-2" rx="18" ry="14" fill="#a45b25" />
+    <ellipse cx="-4" cy="-4" rx="12" ry="9" fill="#c97b32" />
+    <!-- Texture dots on seed center -->
+    <g fill="#422108" opacity="0.7">
+      <circle cx="-6" cy="-4" r="1.5" /><circle cx="2" cy="-3" r="1.5" /><circle cx="-2" cy="3" r="1.5" />
+      <circle cx="6" cy="2" r="1.5" /><circle cx="-10" cy="1" r="1.5" /><circle cx="0" cy="-8" r="1.5" />
+      <circle cx="8" cy="-5" r="1.5" /><circle cx="-5" cy="7" r="1.5" /><circle cx="4" cy="7" r="1.5" />
+    </g>
+
+    <!-- Ray Petals radiating with organic curvature -->
+    <!-- Top petals -->
+    <path d="M-6,-15 C-12,-45 -4,-75 0,-85 C4,-75 12,-45 6,-15 Z" fill="url(#petalGrad)" opacity="0.95" />
+    <path d="M-15,-8 C-35,-32 -48,-55 -55,-68 C-44,-64 -25,-40 -8,-7 Z" fill="url(#petalGrad)" opacity="0.92" />
+    <path d="M15,-8 C35,-32 48,-55 55,-68 C44,-64 25,-40 8,-7 Z" fill="url(#petalGrad)" opacity="0.92" />
+    <!-- Side petals -->
+    <path d="M-18,2 C-50,0 -75,-6 -88,-12 C-75,4 -48,12 -18,6 Z" fill="url(#petalGrad)" opacity="0.95" />
+    <path d="M18,2 C50,0 75,-6 88,-12 C75,4 48,12 18,6 Z" fill="url(#petalGrad)" opacity="0.95" />
+    <!-- Lower drooping petals -->
+    <path d="M-15,10 C-45,30 -65,55 -72,75 C-58,62 -35,38 -10,14 Z" fill="url(#petalGrad)" opacity="0.93" />
+    <path d="M15,10 C45,30 65,55 72,75 C58,62 35,38 10,14 Z" fill="url(#petalGrad)" opacity="0.93" />
+    <path d="M-5,16 C-15,50 -20,78 -22,95 C-12,80 -2,52 3,17 Z" fill="url(#petalGrad)" opacity="0.95" />
+    <path d="M5,16 C15,50 20,78 22,95 C12,80 2,52 -3,17 Z" fill="url(#petalGrad)" opacity="0.95" />
+    
+    <!-- Morning dew drops on petals -->
+    <circle cx="-35" cy="40" r="3.5" fill="#ffffff" opacity="0.8" />
+    <circle cx="28" cy="-30" r="2.5" fill="#ffffff" opacity="0.8" />
+    <circle cx="-10" cy="65" r="3" fill="#ffffff" opacity="0.75" />
+  </g>
+
+  <!-- Smaller companion bud -->
+  <g transform="translate(130, 275) rotate(-35) scale(0.45)">
+    <ellipse cx="0" cy="0" rx="20" ry="16" fill="#78421c" />
+    <path d="M-5,-10 C-10,-40 -3,-65 0,-75 C3,-65 10,-40 5,-10 Z" fill="url(#petalGrad)" />
+    <path d="M-12,-5 C-30,-25 -40,-45 -48,-55 C-38,-50 -20,-30 -6,-4 Z" fill="url(#petalGrad)" />
+    <path d="M12,-5 C30,-25 40,-45 48,-55 C38,-50 20,-30 6,-4 Z" fill="url(#petalGrad)" />
+  </g>
+
+  <!-- Soft organic ground foliage -->
+  <path d="M0,450 Q80,410 160,430 T320,415 T480,425 T600,410 L600,450 Z" fill="#4d5c31" opacity="0.7" />
+  <rect x="0" y="0" width="600" height="450" fill="none" stroke="#5a4128" stroke-width="3" opacity="0.35" />
+</svg>

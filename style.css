@@ -1,0 +1,1401 @@
+/* ==========================================================================
+   IPSITA'S JOURNAL CV — AESTHETIC 3D FLIPBOOK ENGINE & DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  --bg-deep: #140d08;
+  --bg-radial: radial-gradient(120% 90% at 50% 15%, #442d1b 0%, #24170e 55%, #100b07 100%);
+  --leather-base: #3b2516;
+  --leather-grad: linear-gradient(160deg, #5b3a22, #3a2415 60%, #2b1a0f);
+  
+  --paper-bg: #f4e8d0;
+  --paper-shadow: rgba(74, 55, 40, 0.45);
+  
+  --ink-primary: #24170d;
+  --ink-body: #2b1d12;
+  --ink-muted: #5f3a1d;
+  --accent-terra: #7a3a17;
+  --accent-rust: #94512a;
+  --accent-gold: #c89544;
+  --accent-line: rgba(122, 84, 55, 0.3);
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+  --font-script: 'Italianno', cursive;
+  
+  --book-width: 1320px;
+  --book-height: 920px;
+  --leaf-width: 660px;
+  --leaf-height: 920px;
+  
+  --ease-page: cubic-bezier(0.44, 0.06, 0.24, 1);
+  --flip-duration: 1.15s;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--ink-body);
+  font-family: var(--font-hand);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+::selection {
+  background: rgba(168, 102, 60, 0.28);
+}
+
+a {
+  color: var(--accent-rust);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-terra);
+}
+
+button {
+  font-family: var(--font-serif);
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   App Container & Header
+   -------------------------------------------------------------------------- */
+#app-root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-radial);
+  position: relative;
+  overflow: hidden;
+  padding: 16px 20px;
+}
+
+.app-header {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 120;
+  padding: 4px 8px;
+}
+
+.header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(240, 222, 190, 0.95);
+}
+
+.brand-subtitle {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(240, 222, 190, 0.55);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: rgba(240, 222, 190, 0.08);
+  border: 1px solid rgba(240, 222, 190, 0.24);
+  border-radius: 4px;
+  color: rgba(240, 222, 190, 0.82);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.ctrl-btn:hover {
+  background: rgba(240, 222, 190, 0.18);
+  border-color: rgba(240, 222, 190, 0.45);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.ctrl-btn.active {
+  background: rgba(168, 102, 60, 0.35);
+  border-color: rgba(240, 222, 190, 0.5);
+  color: #ffecd2;
+}
+
+.ctrl-icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* Sound Icon Toggles */
+.ctrl-btn .icon-sound-off { display: none; }
+.ctrl-btn:not(.active) .icon-sound-on { display: none; }
+.ctrl-btn:not(.active) .icon-sound-off { display: block; }
+
+/* Autoplay Icon Toggles */
+.ctrl-btn .icon-pause { display: none; }
+.ctrl-btn.playing .icon-play { display: none; }
+.ctrl-btn.playing .icon-pause { display: block; }
+
+/* Fullscreen Icon Toggles */
+.ctrl-btn .icon-fs-exit { display: none; }
+:fullscreen .ctrl-btn .icon-fs-enter { display: none; }
+:fullscreen .ctrl-btn .icon-fs-exit { display: block; }
+
+/* --------------------------------------------------------------------------
+   Stage & 3D Flipbook Core
+   -------------------------------------------------------------------------- */
+.stage-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 2600px;
+  perspective-origin: 50% 48%;
+  z-index: 10;
+}
+
+.book-scaler {
+  width: var(--book-width);
+  height: var(--book-height);
+  position: relative;
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
+}
+
+.book-case {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Hardcover Leather Backing */
+.book-cover-back {
+  position: absolute;
+  top: -16px;
+  left: -22px;
+  right: -22px;
+  bottom: -18px;
+  border-radius: 8px;
+  background: var(--leather-grad);
+  box-shadow: 0 44px 70px rgba(0, 0, 0, 0.65), 
+              0 12px 25px rgba(0, 0, 0, 0.45),
+              inset 0 0 0 1px rgba(255, 225, 180, 0.12), 
+              inset 0 2px 0 rgba(255, 225, 180, 0.08);
+  pointer-events: none;
+}
+
+/* Static Left and Right Page Underlays */
+.book-page-underlay {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #3a2716 url('assets/paper.svg') center/100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.left-underlay {
+  left: 0;
+  box-shadow: inset -22px 0 38px -16px rgba(40, 26, 15, 0.7);
+  border-radius: 4px 0 0 4px;
+}
+
+.right-underlay {
+  right: 0;
+  box-shadow: inset 22px 0 38px -16px rgba(40, 26, 15, 0.7);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Realistic Spine Shadowing */
+.book-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 40px;
+  margin-left: -20px;
+  z-index: 70;
+  pointer-events: none;
+  background: linear-gradient(90deg, 
+    rgba(36, 22, 12, 0) 0%, 
+    rgba(36, 22, 12, 0.38) 35%, 
+    rgba(24, 14, 8, 0.65) 50%, 
+    rgba(36, 22, 12, 0.38) 65%, 
+    rgba(36, 22, 12, 0) 100%);
+}
+
+.book-spine-highlight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  z-index: 75;
+  background: rgba(255, 235, 195, 0.15);
+  pointer-events: none;
+}
+
+/* Click Intercept Zones for Fast Page Navigation */
+.turn-click-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 80;
+  cursor: pointer;
+}
+
+.left-zone {
+  left: 0;
+  cursor: w-resize;
+}
+
+.right-zone {
+  right: 0;
+  cursor: e-resize;
+}
+
+/* --------------------------------------------------------------------------
+   3D Leaves (Double-sided Page Sheets)
+   -------------------------------------------------------------------------- */
+.leaf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--leaf-width);
+  height: var(--leaf-height);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform var(--flip-duration) var(--ease-page);
+  pointer-events: none;
+}
+
+.leaf.flipping-right {
+  z-index: 100 !important;
+}
+
+.leaf.flipping-left {
+  z-index: 100 !important;
+}
+
+/* Page Faces (Front / Back) */
+.page-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  background: var(--paper-bg) url('assets/paper.svg') center/100% 100% no-repeat;
+  color: var(--ink-body);
+  font-family: var(--font-hand);
+  font-size: 19px;
+  pointer-events: auto;
+}
+
+.face-front {
+  box-shadow: inset 16px 0 30px -16px var(--paper-shadow);
+  border-radius: 0 4px 4px 0;
+}
+
+.face-back {
+  transform: rotateY(180deg);
+  box-shadow: inset -16px 0 30px -16px var(--paper-shadow);
+  border-radius: 4px 0 0 4px;
+}
+
+/* Dynamic Page Lighting Shadow Layer */
+.page-shadow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, transparent 40%);
+}
+
+.face-back .page-shadow {
+  background: linear-gradient(-90deg, rgba(0,0,0,0.3) 0%, transparent 40%);
+}
+
+/* Page Content Padding & Inner Layout */
+.page-inner {
+  position: absolute;
+  inset: 0;
+  padding: 80px 66px 62px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* Ornaments in Corners */
+.page-ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('assets/filigree.svg') center/contain no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.corner-tl { top: 22px; left: 22px; }
+.corner-tr { top: 22px; right: 22px; transform: scaleX(-1); }
+.corner-bl { bottom: 22px; left: 22px; transform: scaleY(-1); }
+.corner-br { bottom: 22px; right: 22px; transform: scale(-1, -1); }
+
+/* --------------------------------------------------------------------------
+   Page Header & Typography
+   -------------------------------------------------------------------------- */
+.page-header-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid var(--accent-line);
+  padding-bottom: 11px;
+}
+
+.page-num-top {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: var(--accent-rust);
+}
+
+.page-headline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.12;
+  color: var(--ink-primary);
+  letter-spacing: 0.01em;
+}
+
+.italic-headline {
+  font-style: italic;
+  font-size: 27px;
+  color: rgba(38, 25, 15, 0.92);
+}
+
+.page-footer-num {
+  margin-top: auto;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: rgba(43, 29, 18, 0.66);
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 01: COVER PAGE
+   -------------------------------------------------------------------------- */
+.cover-inner {
+  padding: 120px 74px 70px;
+  align-items: center;
+  text-align: center;
+}
+
+.journal-flourish {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  letter-spacing: 0.5em;
+  color: var(--accent-rust);
+}
+
+.cover-subtitle {
+  margin-top: 30px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.84);
+}
+
+.cover-title {
+  margin: 14px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.05;
+  color: var(--ink-primary);
+  letter-spacing: 0.02em;
+}
+
+.cover-name {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-script);
+  font-size: 106px;
+  line-height: 0.9;
+  color: var(--accent-terra);
+}
+
+.cover-tagline {
+  margin: 26px 0 0;
+  font-weight: 500;
+  font-size: 20.5px;
+  line-height: 1.7;
+  color: #33230f;
+}
+
+.cover-divider {
+  width: 112px;
+  height: 1px;
+  margin: 30px 0;
+  background: linear-gradient(90deg, transparent, rgba(141, 79, 40, 0.6), transparent);
+}
+
+.cover-pillars, .closing-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.86);
+}
+
+.dot {
+  font-style: normal;
+  color: var(--accent-rust);
+}
+
+.cover-prompt {
+  margin-top: auto;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: rgba(141, 79, 40, 0.85);
+  animation: promptPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes promptPulse {
+  0%, 100% { transform: translateX(0); opacity: 0.75; }
+  50% { transform: translateX(4px); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 02: WHAT PULLS ME IN
+   -------------------------------------------------------------------------- */
+.pulls-grid {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pull-title {
+  display: block;
+  font-size: 20.5px;
+  line-height: 1.38;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.pull-desc {
+  margin: 6px 0 0;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.82;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   PLATES I - V: POLAROID PHOTO ART MOUNTINGS
+   -------------------------------------------------------------------------- */
+.plate-inner {
+  padding: 78px 72px 62px;
+  align-items: center;
+}
+
+.plate-tag {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.78);
+}
+
+.polaroid-frame {
+  margin-top: 20px;
+  width: 416px;
+  padding: 12px 12px 34px;
+  background: rgba(255, 252, 244, 0.88);
+  box-shadow: 0 10px 24px rgba(60, 40, 25, 0.35),
+              0 2px 6px rgba(60, 40, 25, 0.15);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border-radius: 2px;
+}
+
+.polaroid-rot-1 { transform: rotate(-1.3deg); }
+.polaroid-rot-2 { transform: rotate(1.2deg); }
+
+.polaroid-frame:hover {
+  transform: scale(1.025) rotate(0deg);
+  box-shadow: 0 16px 36px rgba(60, 40, 25, 0.45);
+}
+
+.polaroid-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+  mix-blend-mode: multiply;
+}
+
+.photo-expand-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+  opacity: 0;
+  transform: translateY(3px);
+  transition: all 0.25s ease;
+}
+
+.photo-expand-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.polaroid-frame:hover .photo-expand-badge {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.plate-script {
+  margin-top: 26px;
+  text-align: center;
+  font-family: var(--font-script);
+  font-size: 38px;
+  line-height: 1.12;
+  color: var(--accent-terra);
+}
+
+.plate-script.font-smaller {
+  font-size: 33px;
+}
+
+.plate-quote {
+  margin: 26px 0 0;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   ESSAY PAGES (04, 10, 12, 14)
+   -------------------------------------------------------------------------- */
+.essay-body {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.essay-quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19.5px;
+  line-height: 1.5;
+  color: var(--accent-terra);
+}
+
+.essay-p {
+  font-size: 19px;
+  line-height: 1.88;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.highlight-text {
+  color: var(--ink-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 06: BRAND (LA ROCHE-POSAY)
+   -------------------------------------------------------------------------- */
+.brand-headline {
+  font-size: 28px;
+}
+
+.brand-showcase-box {
+  margin-top: 28px;
+  padding: 34px 30px;
+  border: 1px solid rgba(122, 84, 55, 0.32);
+  background: rgba(255, 252, 244, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand-logo-wrap {
+  width: 195px;
+  height: auto;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.brand-divider {
+  width: 64px;
+  height: 1px;
+  margin: 14px 0 20px;
+  background: rgba(141, 79, 40, 0.55);
+}
+
+.brand-motto {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18.5px;
+  line-height: 1.5;
+  color: var(--accent-terra);
+}
+
+.brand-copy {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  text-align: left;
+}
+
+.brand-p {
+  font-size: 19px;
+  line-height: 1.84;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.brand-tagline {
+  margin-top: 24px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 07: STRENGTHS
+   -------------------------------------------------------------------------- */
+.traits-list {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.trait-row {
+  display: flex;
+  gap: 16px;
+}
+
+.trait-num {
+  flex: none;
+  width: 30px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1;
+  color: rgba(141, 79, 40, 0.65);
+}
+
+.trait-title {
+  display: block;
+  font-size: 19.5px;
+  line-height: 1.38;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.trait-desc {
+  margin: 5px 0 0;
+  font-size: 19px;
+  line-height: 1.78;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.traits-footer-note, .growth-footer-note {
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(122, 84, 55, 0.28);
+  font-size: 19px;
+  line-height: 1.68;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   PAGES 08 & 09: GROWTH EDGES
+   -------------------------------------------------------------------------- */
+.growth-cards {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.growth-card {
+  padding: 16px 22px;
+  border: 1px solid rgba(122, 84, 55, 0.26);
+  background: rgba(255, 252, 244, 0.4);
+  border-radius: 2px;
+}
+
+.growth-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.growth-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1;
+  color: rgba(141, 79, 40, 0.65);
+}
+
+.growth-title {
+  font-size: 19.5px;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.growth-body {
+  margin: 10px 0 0;
+  font-size: 19px;
+  line-height: 1.8;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.growth-action-label {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+}
+
+.growth-action-text {
+  margin: 6px 0 0;
+  font-size: 19px;
+  line-height: 1.8;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 16: FIN (CLOSING)
+   -------------------------------------------------------------------------- */
+.closing-inner {
+  padding: 95px 76px 60px;
+  align-items: center;
+  text-align: center;
+}
+
+.closing-fin {
+  margin-top: 20px;
+  font-family: var(--font-script);
+  font-size: 92px;
+  line-height: 0.9;
+  color: var(--accent-terra);
+}
+
+.closing-header-rule {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.rule-line {
+  flex: 1;
+  height: 1px;
+}
+
+.rule-left { background: linear-gradient(90deg, transparent, rgba(141, 79, 40, 0.5)); }
+.rule-right { background: linear-gradient(90deg, rgba(141, 79, 40, 0.5), transparent); }
+
+.rule-title {
+  font-family: var(--font-serif);
+  font-size: 10.5px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.78);
+}
+
+.closing-text-block {
+  margin-top: 26px;
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.closing-p {
+  font-size: 19px;
+  line-height: 1.9;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.wax-seal {
+  margin-top: 30px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 1px solid rgba(141, 79, 40, 0.5);
+  background: rgba(168, 102, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(60, 40, 25, 0.15);
+}
+
+.seal-letter {
+  font-family: var(--font-script);
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(141, 79, 40, 0.88);
+}
+
+.closing-footer-box {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.closing-byline {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.66);
+}
+
+/* --------------------------------------------------------------------------
+   App Footer & Timeline Navigation
+   -------------------------------------------------------------------------- */
+.app-footer {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 120;
+}
+
+.footer-nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 24px;
+  background: rgba(240, 222, 190, 0.09);
+  border: 1px solid rgba(240, 222, 190, 0.3);
+  border-radius: 4px;
+  color: rgba(240, 222, 190, 0.9);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.nav-arrow-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+  background: rgba(240, 222, 190, 0.22);
+  border-color: rgba(240, 222, 190, 0.55);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.nav-arrow-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Timeline Track & Scrubber */
+.timeline-slider-wrap {
+  flex: 1;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-indicator-badge {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: rgba(240, 222, 190, 0.85);
+  text-transform: uppercase;
+}
+
+.timeline-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(240, 222, 190, 0.15);
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #94512a, #d48b59);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  pointer-events: none;
+}
+
+.time-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2b1c12;
+  border: 2px solid rgba(240, 222, 190, 0.4);
+  position: relative;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+.time-node:hover {
+  transform: scale(1.35);
+  border-color: #ffd8a8;
+  background: #7a3a17;
+}
+
+.time-node.active {
+  background: #f7d498;
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(247, 212, 152, 0.8);
+  transform: scale(1.2);
+}
+
+.footer-shortcuts-hint {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(240, 222, 190, 0.42);
+}
+
+.footer-shortcuts-hint kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  background: rgba(240, 222, 190, 0.1);
+  border: 1px solid rgba(240, 222, 190, 0.25);
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Table of Contents Slide-Out Drawer
+   -------------------------------------------------------------------------- */
+.toc-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 85vw;
+  background: #23170e url('assets/paper.svg') center/cover;
+  box-shadow: 10px 0 35px rgba(0, 0, 0, 0.65);
+  border-right: 1px solid rgba(141, 79, 40, 0.35);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-105%);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toc-drawer.open {
+  transform: translateX(0);
+}
+
+.toc-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 190;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.toc-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toc-header {
+  padding: 32px 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(122, 84, 55, 0.25);
+}
+
+.toc-sub {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+}
+
+.toc-title {
+  margin: 4px 0 0;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+
+.toc-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(141, 79, 40, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-primary);
+  transition: background 0.2s ease;
+}
+
+.toc-close-btn:hover {
+  background: rgba(141, 79, 40, 0.25);
+}
+
+.toc-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.toc-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.toc-item:hover {
+  background: rgba(141, 79, 40, 0.12);
+}
+
+.toc-item.active {
+  background: rgba(141, 79, 40, 0.2);
+  border-left: 3px solid var(--accent-terra);
+}
+
+.toc-num {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent-rust);
+  min-width: 50px;
+}
+
+.toc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc-name {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.toc-desc {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Photo Viewer Modal
+   -------------------------------------------------------------------------- */
+.photo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 8, 5, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.photo-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  max-width: 780px;
+  width: 100%;
+  background: #fbf5e8 url('assets/paper.svg') center/cover;
+  padding: 24px 24px 28px;
+  border-radius: 4px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transform: scale(0.94);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-modal.open .modal-card {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-primary);
+  transition: background 0.2s ease;
+  z-index: 5;
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.modal-close-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.modal-photo-wrap {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  background: #2a1c12;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-details {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.modal-caption {
+  font-family: var(--font-script);
+  font-size: 38px;
+  line-height: 1.1;
+  color: var(--accent-terra);
+}
+
+.modal-note {
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout & Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .app-header {
+    padding: 2px 4px;
+  }
+  
+  .brand-subtitle {
+    display: none;
+  }
+  
+  .btn-label {
+    display: none;
+  }
+  
+  .ctrl-btn {
+    padding: 7px 9px;
+  }
+  
+  .footer-shortcuts-hint {
+    display: none;
+  }
+  
+  .nav-arrow-btn {
+    padding: 8px 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Print Stylesheet (PDF Export Ready)
+   -------------------------------------------------------------------------- */
+@media print {
+  body, #app-root {
+    background: #fff !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  .app-header, .app-footer, .toc-drawer, .toc-backdrop, .turn-click-zone, .book-spine, .book-cover-back {
+    display: none !important;
+  }
+  
+  .stage-container {
+    perspective: none !important;
+    display: block !important;
+  }
+  
+  .book-scaler {
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .leaf {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    page-break-after: always !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .page-face {
+    position: relative !important;
+    transform: none !important;
+    height: 900px !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

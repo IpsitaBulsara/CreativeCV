@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="#7a4628" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Corner flourish -->
+  <path d="M5,5 L45,5 C55,5 60,10 60,20 C60,30 50,35 40,35 C25,35 15,25 15,10" />
+  <path d="M5,5 L5,45 C5,55 10,60 20,60 C30,60 35,50 35,40 C35,25 25,15 10,15" />
+  <path d="M12,12 L35,12 C42,12 48,16 48,24 C48,30 42,32 36,32" stroke-width="1" />
+  <path d="M12,12 L12,35 C12,42 16,48 24,48 C30,48 32,42 32,36" stroke-width="1" />
+  <circle cx="8" cy="8" r="2.5" fill="#7a4628" stroke="none" />
+  <circle cx="28" cy="28" r="3" fill="#7a4628" stroke="none" />
+  <path d="M22,22 L34,34 M22,34 L34,22" stroke-width="0.8" />
+</svg>

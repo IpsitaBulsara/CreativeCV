@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ipsita — A Creative CV, Kept as a Journal</title>
+  <meta name="description" content="A creative journal-style CV: A record of curiosity, people, places, and creativity.">
+  <meta name="theme-color" content="#1d140d">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Italianno&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Audio & Sound Feedback Container -->
+  <div id="app-root">
+
+    <!-- Top App Bar / Navigation -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-title">Ipsita</div>
+        <span class="brand-subtitle">a creative CV, kept as a journal</span>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="header-controls">
+        <button id="btn-toc" class="ctrl-btn" title="Table of Contents" aria-label="Table of Contents">
+          <svg class="ctrl-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M3,4H21V6H3V4M3,11H21V13H3V11M3,18H21V20H3V18Z"/></svg>
+          <span class="btn-label">Contents</span>
+        </button>
+
+        <button id="btn-sound" class="ctrl-btn active" title="Toggle Sound (M)" aria-label="Toggle Sound">
+          <svg class="ctrl-icon icon-sound-on" viewBox="0 0 24 24"><path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18.01,19.86 21,16.28 21,12C21,7.72 18.01,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/></svg>
+          <svg class="ctrl-icon icon-sound-off" viewBox="0 0 24 24"><path fill="currentColor" d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.45 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L4.27,3M19,12C19,12.82 18.83,13.61 18.53,14.32L20.07,15.86C20.66,14.69 21,13.39 21,12C21,7.72 18.01,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z"/></svg>
+          <span class="btn-label">Sound</span>
+        </button>
+
+        <button id="btn-autoplay" class="ctrl-btn" title="Autoplay Slideshow (P)" aria-label="Toggle Autoplay">
+          <svg class="ctrl-icon icon-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z"/></svg>
+          <svg class="ctrl-icon icon-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M14,19H18V5H14M6,19H10V5H6V19Z"/></svg>
+          <span class="btn-label">Autoplay</span>
+        </button>
+
+        <button id="btn-fullscreen" class="ctrl-btn" title="Fullscreen (F)" aria-label="Toggle Fullscreen">
+          <svg class="ctrl-icon icon-fs-enter" viewBox="0 0 24 24"><path fill="currentColor" d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z"/></svg>
+          <svg class="ctrl-icon icon-fs-exit" viewBox="0 0 24 24"><path fill="currentColor" d="M14,14H19V16H16V19H14V14M5,14H10V19H8V16H5V14M8,5H10V10H5V8H8V5M19,8V10H14V5H16V8H19Z"/></svg>
+          <span class="btn-label">Fullscreen</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Stage / 3D Book Experience Viewport -->
+    <main class="stage-container" id="stage-container">
+      
+      <!-- Scalable Book Wrapper with 3D Depth & Leather Binding Cover Shadow -->
+      <div class="book-scaler" id="book-scaler">
+        <div class="book-case" id="book-case">
+
+          <!-- Outer Leather Hardcover Binding -->
+          <div class="book-cover-back"></div>
+          
+          <!-- Book Base Shadows & Spine Ambient Gradients -->
+          <div class="book-page-underlay left-underlay"></div>
+          <div class="book-page-underlay right-underlay"></div>
+          <div class="book-spine"></div>
+          <div class="book-spine-highlight"></div>
+
+          <!-- Click Intercept Zones for Left / Right Pages -->
+          <div class="turn-click-zone left-zone" id="zone-prev" title="Previous Page (←)" aria-label="Previous Page"></div>
+          <div class="turn-click-zone right-zone" id="zone-next" title="Next Page (→)" aria-label="Next Page"></div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 0 : COVER (Front) / P02 WHAT PULLS ME IN (Back) -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-0" id="leaf-0">
+            <!-- Front Face: Book Cover (Page 01) -->
+            <div class="page-face face-front cover-page">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+              <div class="page-vignette vignette-top"></div>
+              <div class="page-vignette vignette-bottom"></div>
+
+              <div class="page-inner cover-inner">
+                <div class="journal-flourish">✦ ❧ ✦</div>
+                <div class="cover-subtitle">A little more than a CV</div>
+                <h1 class="cover-title">
+                  Meet<br>
+                  <span class="cover-name">Ipsita</span>
+                </h1>
+                <p class="cover-tagline">a journal of the things that make me, me</p>
+                <div class="cover-divider"></div>
+                <div class="cover-pillars">
+                  <span>curiosity</span><i class="dot">•</i>
+                  <span>people</span><i class="dot">•</i>
+                  <span>places</span><i class="dot">•</i>
+                  <span>creativity</span>
+                </div>
+                <div class="cover-prompt">turn the page →</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 02 (What pulls me in) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">02</span>
+                  <h2 class="page-headline">What pulls me in</h2>
+                </div>
+
+                <div class="pulls-grid">
+                  <div class="pull-item">
+                    <b class="pull-title">Seeing the world — really seeing it.</b>
+                    <p class="pull-desc">Travel is how I understand that the world is bigger than any single perspective, mine included. I want to experience places firsthand and meet the people who make them what they are.</p>
+                  </div>
+                  <div class="pull-item">
+                    <b class="pull-title">Creating something out of nothing.</b>
+                    <p class="pull-desc">A blank page becoming a sketch, a photograph or an idea gives me a particular kind of joy. I love making.</p>
+                  </div>
+                  <div class="pull-item">
+                    <b class="pull-title">Making people feel seen.</b>
+                    <p class="pull-desc">A remembered detail, a message at the right time or simply making someone smile can change a day. That matters to me.</p>
+                  </div>
+                  <div class="pull-item">
+                    <b class="pull-title">Growing, constantly.</b>
+                    <p class="pull-desc">New skills, new perspectives and new experiences keep me moving. I never want to be finished learning.</p>
+                  </div>
+                </div>
+
+                <div class="page-footer-num">— 2 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 1 : PLATE I (Places) / P04 BEAUTY -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-1" id="leaf-1">
+            <!-- Front Face: Page 03 (Plate I - Places) -->
+            <div class="page-face face-front plate-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner plate-inner">
+                <div class="plate-tag">Plate I · Places</div>
+                <div class="polaroid-frame polaroid-rot-1" data-photo="assets/plate1.svg" data-caption="Seeing the world — really seeing it." data-note="European alleys, golden hour cobblestones, and the stories found around quiet corners.">
+                  <img src="assets/plate1.svg" alt="Plate I: Places & Travel" class="polaroid-img">
+                  <div class="photo-expand-badge">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
+                    <span>View</span>
+                  </div>
+                </div>
+                <div class="plate-script">Seeing the world — really seeing it.</div>
+                <div class="page-footer-num">— 3 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 04 (What beauty means to me) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">04</span>
+                  <h2 class="page-headline">What beauty means to me</h2>
+                </div>
+
+                <div class="essay-body">
+                  <p class="essay-quote">Beauty, to me, is natural.</p>
+                  <p class="essay-p">Every flower is beautiful in its own way. Every tree, every waterfall, every mountain, every feather, every animal, every imperfect little thing in nature has its own character.</p>
+                  <p class="essay-p">I've realised that the most beautiful things aren't usually trying to be beautiful. They simply exist as themselves.</p>
+                  <p class="essay-p">A flower doesn't need to be the biggest flower. A tree doesn't need perfect symmetry. A landscape doesn't need a filter.</p>
+                  <p class="essay-p">That is what beauty means to me: <strong class="highlight-text">being fully what you are, with care rather than correction.</strong></p>
+                </div>
+
+                <div class="page-footer-num">— 4 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 2 : PLATE II (Nature) / P06 BRAND -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-2" id="leaf-2">
+            <!-- Front Face: Page 05 (Plate II - Nature) -->
+            <div class="page-face face-front plate-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner plate-inner">
+                <div class="plate-tag">Plate II · Nature</div>
+                <div class="polaroid-frame polaroid-rot-2" data-photo="assets/plate2.svg" data-caption="“Nature doesn't try. It simply is.”" data-note="Delicate wildflower morning study, organic authenticity, and unforced character.">
+                  <img src="assets/plate2.svg" alt="Plate II: Nature" class="polaroid-img">
+                  <div class="photo-expand-badge">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
+                    <span>View</span>
+                  </div>
+                </div>
+                <blockquote class="plate-quote">“Nature doesn't try. It simply is.”</blockquote>
+                <div class="page-footer-num">— 5 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 06 (The L'Oréal brand I relate to most) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">06</span>
+                  <h2 class="page-headline brand-headline">The L'Oréal brand I relate to most</h2>
+                </div>
+
+                <div class="brand-showcase-box">
+                  <div class="brand-logo-wrap">
+                    <img src="assets/lrp-logo.svg" alt="La Roche-Posay Laboratoire Dermatologique" class="brand-logo-img">
+                  </div>
+                  <div class="brand-divider"></div>
+                  <p class="brand-motto">Quiet confidence. Care backed by understanding.</p>
+                  
+                  <div class="brand-copy">
+                    <p class="brand-p">What draws me to La Roche-Posay is its philosophy of paying attention to what people genuinely need. It doesn't feel like beauty for the sake of beauty; it feels like care with a purpose.</p>
+                    <p class="brand-p">I relate to that restraint. I would rather let something speak through what it actually does than through how loudly it presents itself.</p>
+                    <p class="brand-p">There is also something very human about caring for people on the days when they don't feel their best. To me, beauty should make people feel comfortable being themselves — not pressure them into becoming someone else.</p>
+                  </div>
+
+                  <div class="brand-tagline">Care first. Confidence follows.</div>
+                </div>
+
+                <div class="page-footer-num">— 6 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 3 : P07 STRENGTHS / P08 GROWTH I -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-3" id="leaf-3">
+            <!-- Front Face: Page 07 (My strengths) -->
+            <div class="page-face face-front">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">07</span>
+                  <h2 class="page-headline">My strengths</h2>
+                </div>
+
+                <div class="traits-list">
+                  <div class="trait-row">
+                    <span class="trait-num">01</span>
+                    <div class="trait-content">
+                      <b class="trait-title">I'm comfortable being a beginner.</b>
+                      <p class="trait-desc">I don't mind not knowing things. When I'm dropped into something unfamiliar, I can usually find my footing reasonably quickly — mostly because I'm not embarrassed to ask basic questions or start at the bottom.</p>
+                    </div>
+                  </div>
+
+                  <div class="trait-row">
+                    <span class="trait-num">02</span>
+                    <div class="trait-content">
+                      <b class="trait-title">I tend to notice things.</b>
+                      <p class="trait-desc">Small details, a shift in someone's tone, the thing nobody quite said. I think sketching did this to me — you can't draw something until you've actually looked at it properly. It's carried over into how I read situations and people.</p>
+                    </div>
+                  </div>
+
+                  <div class="trait-row">
+                    <span class="trait-num">03</span>
+                    <div class="trait-content">
+                      <b class="trait-title">I try not to do things halfway.</b>
+                      <p class="trait-desc">If I've taken something on, I'd rather give it proper attention than spread myself across too much. I'd like to think people can rely on me to see things through.</p>
+                    </div>
+                  </div>
+
+                  <div class="trait-row">
+                    <span class="trait-num">04</span>
+                    <div class="trait-content">
+                      <b class="trait-title">I care about the people I work with.</b>
+                      <p class="trait-desc">Not as a strategy — I just do. I remember what people tell me, and I usually notice when someone's having a hard time. I think teams work better when someone's paying attention to that.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="traits-footer-note">
+                  The same thing that makes me over-polish also makes me thorough. I'm not trying to be a different person — just a better-calibrated one.
+                </div>
+
+                <div class="page-footer-num">— 7 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 08 (My growth edges I) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">08</span>
+                  <h2 class="page-headline">My growth edges</h2>
+                </div>
+
+                <div class="growth-cards">
+                  <div class="growth-card">
+                    <div class="growth-header">
+                      <span class="growth-num">01</span>
+                      <b class="growth-title">I can take on too much myself.</b>
+                    </div>
+                    <p class="growth-body">I tend to take ownership seriously, which sometimes means I try to carry more than I need to. My instinct is often to solve things myself before involving others.</p>
+                    <div class="growth-action-label">What I'm doing about it:</div>
+                    <p class="growth-action-text">I've started involving people earlier and being more deliberate about what actually needs my ownership versus what can be shared. I'm learning that good ownership isn't doing everything yourself — it's making sure the right things get done.</p>
+                  </div>
+
+                  <div class="growth-card">
+                    <div class="growth-header">
+                      <span class="growth-num">02</span>
+                      <b class="growth-title">I can get too absorbed in a problem.</b>
+                    </div>
+                    <p class="growth-body">When something genuinely interests me, I can become deeply absorbed in figuring it out. The downside is that I sometimes lose sight of the bigger picture or spend longer than necessary on one part.</p>
+                    <div class="growth-action-label">What I'm doing about it:</div>
+                    <p class="growth-action-text">I now pause at natural checkpoints and ask myself: <i>Is this still the most valuable thing I could be working on?</i> It helps me step back without losing the curiosity that got me there.</p>
+                  </div>
+                </div>
+
+                <div class="page-footer-num">— 8 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 4 : P09 GROWTH II / P10 THE UNFAMILIAR -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-4" id="leaf-4">
+            <!-- Front Face: Page 09 (My growth edges, continued) -->
+            <div class="page-face face-front">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">09</span>
+                  <h2 class="page-headline italic-headline">My growth edges, continued</h2>
+                </div>
+
+                <div class="growth-cards">
+                  <div class="growth-card">
+                    <div class="growth-header">
+                      <span class="growth-num">03</span>
+                      <b class="growth-title">I don't always speak up immediately.</b>
+                    </div>
+                    <p class="growth-body">I tend to observe before I speak. I like understanding the context and hearing different perspectives first, but sometimes that means I take longer than I should to put my own view forward.</p>
+                    <div class="growth-action-label">What I'm doing about it:</div>
+                    <p class="growth-action-text">I've started challenging myself to contribute earlier, even if my thought isn't fully formed. I've realised that a perspective doesn't have to be perfect to be useful.</p>
+                  </div>
+
+                  <div class="growth-card">
+                    <div class="growth-header">
+                      <span class="growth-num">04</span>
+                      <b class="growth-title">I find it difficult to say no to interesting opportunities.</b>
+                    </div>
+                    <p class="growth-body">I'm naturally curious, so when something new comes up, my first instinct is usually <i>why not?</i> That can sometimes leave me juggling too many things at once.</p>
+                    <div class="growth-action-label">What I'm doing about it:</div>
+                    <p class="growth-action-text">I now look at what an opportunity will replace before saying yes to it. I'm learning that being curious about everything doesn't mean I have to pursue everything.</p>
+                  </div>
+                </div>
+
+                <div class="growth-footer-note">
+                  I'm not trying to become less curious or less involved — I'm learning to direct those instincts better.
+                </div>
+
+                <div class="page-footer-num">— 9 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 10 (Say yes to the unfamiliar) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">10</span>
+                  <h2 class="page-headline">Say yes to the unfamiliar.</h2>
+                </div>
+
+                <div class="essay-body">
+                  <p class="essay-quote">I am down for any new experience.</p>
+                  <p class="essay-p">Put me somewhere I've never been, ask me to try something I've never tried, introduce me to a culture I don't know — I'm in.</p>
+                  <p class="essay-p">For me, memorable moments usually begin with a little uncertainty. An adventure activity, a new performance, a wildlife sighting, a completely different landscape — I like the feeling of not knowing exactly what comes next.</p>
+                  <p class="essay-p">I don't want a life that feels pre-written. I want stories I couldn't have planned.</p>
+                </div>
+
+                <div class="page-footer-num">— 10 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 5 : PLATE III (Unfamiliar) / P12 MOMENTS -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-5" id="leaf-5">
+            <!-- Front Face: Page 11 (Plate III - The unfamiliar) -->
+            <div class="page-face face-front plate-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner plate-inner">
+                <div class="plate-tag">Plate III · The unfamiliar</div>
+                <div class="polaroid-frame polaroid-rot-1" data-photo="assets/plate3.svg" data-caption="New places. New people. New stories." data-note="Morning mist, high ridges, and stepping forward into unwritten territory.">
+                  <img src="assets/plate3.svg" alt="Plate III: The Unfamiliar" class="polaroid-img">
+                  <div class="photo-expand-badge">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
+                    <span>View</span>
+                  </div>
+                </div>
+                <div class="plate-script">New places. New people. New stories.</div>
+                <div class="page-footer-num">— 11 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 12 (Catch the moment) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">12</span>
+                  <h2 class="page-headline">Sometimes, I catch the moment.</h2>
+                </div>
+
+                <div class="essay-body">
+                  <p class="essay-quote">A small fun fact.</p>
+                  <p class="essay-p">I sometimes surprise myself by taking genuinely good photographs of nature.</p>
+                  <p class="essay-p">Not for the grid. Not because I planned the shot. Just because something stopped me in my tracks — the light, a feather, a sunset, a tree in bloom — and I happened to have my camera.</p>
+                </div>
+
+                <div class="page-footer-num">— 12 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 6 : PLATE IV (Photographs) / P14 MAKING -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-6" id="leaf-6">
+            <!-- Front Face: Page 13 (Plate IV - Photographs) -->
+            <div class="page-face face-front plate-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner plate-inner">
+                <div class="plate-tag">Plate IV · Photographs</div>
+                <div class="polaroid-frame polaroid-rot-2" data-photo="assets/plate4.svg" data-caption="I like keeping proof of the moments I almost walked past." data-note="An iridescent feather in warm light, delicate barbs, and camera reticle framing.">
+                  <img src="assets/plate4.svg" alt="Plate IV: Photographs" class="polaroid-img">
+                  <div class="photo-expand-badge">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
+                    <span>View</span>
+                  </div>
+                </div>
+                <div class="plate-script font-smaller">I like keeping proof of the moments I almost walked past.</div>
+                <div class="page-footer-num">— 13 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 14 (I like making things) -->
+            <div class="page-face face-back">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner">
+                <div class="page-header-row">
+                  <span class="page-num-top">14</span>
+                  <h2 class="page-headline">I like making things.</h2>
+                </div>
+
+                <div class="essay-body">
+                  <p class="essay-quote">Creating something out of nothing.</p>
+                  <p class="essay-p">There is a feeling I chase: the moment a blank page stops being blank.</p>
+                  <p class="essay-p">Sometimes it becomes a sketch. Sometimes a photograph. Sometimes an idea that didn't exist five minutes ago.</p>
+                  <p class="essay-p">The medium changes. The instinct doesn't.</p>
+                  <p class="essay-p">I also love noticing details — light, colour, texture, expressions, the tiny things other people walk past. Looking closely is part of how I create.</p>
+                </div>
+
+                <div class="page-footer-num">— 14 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 7 : PLATE V (Making) / P16 FIN (Back Cover) -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-7" id="leaf-7">
+            <!-- Front Face: Page 15 (Plate V - Making) -->
+            <div class="page-face face-front plate-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+
+              <div class="page-inner plate-inner">
+                <div class="plate-tag">Plate V · Making</div>
+                <div class="polaroid-frame polaroid-rot-1" data-photo="assets/plate5.svg" data-caption="The medium changes. The instinct doesn't." data-note="Sketchbook spreads, fountain pen nibs, color washes, and the spark of creation.">
+                  <img src="assets/plate5.svg" alt="Plate V: Making" class="polaroid-img">
+                  <div class="photo-expand-badge">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
+                    <span>View</span>
+                  </div>
+                </div>
+                <div class="plate-script">The medium changes. The instinct doesn't.</div>
+                <div class="page-footer-num">— 15 —</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Page 16 (Fin. / The last page) -->
+            <div class="page-face face-back closing-face">
+              <div class="page-ornament corner-tl"></div>
+              <div class="page-ornament corner-tr"></div>
+              <div class="page-ornament corner-bl"></div>
+              <div class="page-ornament corner-br"></div>
+              <div class="page-vignette vignette-top"></div>
+              <div class="page-vignette vignette-bottom"></div>
+
+              <div class="page-inner closing-inner">
+                <div class="journal-flourish">✦ ❧ ✦</div>
+                <div class="closing-fin">Fin.</div>
+                
+                <div class="closing-header-rule">
+                  <div class="rule-line rule-left"></div>
+                  <div class="rule-title">The last page</div>
+                  <div class="rule-line rule-right"></div>
+                </div>
+
+                <div class="closing-text-block">
+                  <p class="closing-p">This is the shortest honest version of me. Not a list of what I've done, but a record of what I notice, what I chase and what I'm still learning to hold more lightly.</p>
+                  <p class="closing-p">If any of it sounds like someone you'd want on your team, I'd love to keep the conversation going.</p>
+                </div>
+
+                <div class="closing-pillars">
+                  <span>curiosity</span><i class="dot">•</i>
+                  <span>people</span><i class="dot">•</i>
+                  <span>places</span><i class="dot">•</i>
+                  <span>creativity</span>
+                </div>
+
+                <!-- Personal Seal Wax Stamp -->
+                <div class="wax-seal" title="Ipsita's Seal">
+                  <span class="seal-letter">I</span>
+                </div>
+
+                <div class="closing-footer-box">
+                  <div class="closing-byline">Written and assembled by Ipsita</div>
+                  <div class="page-footer-num">— 16 —</div>
+                </div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar & Timeline Scrubber -->
+    <footer class="app-footer">
+      <div class="footer-nav-container">
+        <button id="btn-prev" class="nav-arrow-btn" aria-label="Previous Spread (←)">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/></svg>
+          <span>Back</span>
+        </button>
+
+        <!-- Timeline Scrubber & Thumbnails -->
+        <div class="timeline-slider-wrap">
+          <div class="page-indicator-badge" id="page-counter-badge">Cover</div>
+          
+          <div class="timeline-track" id="timeline-track">
+            <div class="timeline-progress" id="timeline-progress"></div>
+            <!-- Interactive page node dots -->
+            <button class="time-node active" data-flip="0" title="Cover"></button>
+            <button class="time-node" data-flip="1" title="Pages 2 – 3: What pulls me in & Plate I"></button>
+            <button class="time-node" data-flip="2" title="Pages 4 – 5: Beauty & Plate II"></button>
+            <button class="time-node" data-flip="3" title="Pages 6 – 7: Brand & Strengths"></button>
+            <button class="time-node" data-flip="4" title="Pages 8 – 9: Growth Edges"></button>
+            <button class="time-node" data-flip="5" title="Pages 10 – 11: The Unfamiliar & Plate III"></button>
+            <button class="time-node" data-flip="6" title="Pages 12 – 13: Moments & Plate IV"></button>
+            <button class="time-node" data-flip="7" title="Pages 14 – 15: Making & Plate V"></button>
+            <button class="time-node" data-flip="8" title="Page 16: Fin."></button>
+          </div>
+        </div>
+
+        <button id="btn-next" class="nav-arrow-btn" aria-label="Next Spread (→)">
+          <span>Next</span>
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+        </button>
+      </div>
+
+      <!-- Quick Hint -->
+      <div class="footer-shortcuts-hint">
+        Use <kbd>←</kbd> <kbd>→</kbd> or click page edges &bull; Swipe on mobile &bull; <kbd>M</kbd> Mute &bull; <kbd>F</kbd> Fullscreen
+      </div>
+    </footer>
+
+    <!-- Table of Contents Slide-Out Drawer -->
+    <aside class="toc-drawer" id="toc-drawer" aria-hidden="true">
+      <div class="toc-header">
+        <div class="toc-title-box">
+          <span class="toc-sub">Journal Index</span>
+          <h3 class="toc-title">Table of Contents</h3>
+        </div>
+        <button id="btn-close-toc" class="toc-close-btn" aria-label="Close Table of Contents">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+        </button>
+      </div>
+
+      <nav class="toc-list" id="toc-list">
+        <a href="#cover" class="toc-item active" data-flip="0">
+          <span class="toc-num">01</span>
+          <div class="toc-meta">
+            <b class="toc-name">Cover</b>
+            <span class="toc-desc">Meet Ipsita — A Little More Than a CV</span>
+          </div>
+        </a>
+
+        <a href="#pulls" class="toc-item" data-flip="1">
+          <span class="toc-num">02 – 03</span>
+          <div class="toc-meta">
+            <b class="toc-name">What pulls me in</b>
+            <span class="toc-desc">Seeing the world, making, and Plate I (Places)</span>
+          </div>
+        </a>
+
+        <a href="#beauty" class="toc-item" data-flip="2">
+          <span class="toc-num">04 – 05</span>
+          <div class="toc-meta">
+            <b class="toc-name">What beauty means to me</b>
+            <span class="toc-desc">Natural existence & Plate II (Nature)</span>
+          </div>
+        </a>
+
+        <a href="#brand" class="toc-item" data-flip="3">
+          <span class="toc-num">06 – 07</span>
+          <div class="toc-meta">
+            <b class="toc-name">The Brand I Relate to Most & Strengths</b>
+            <span class="toc-desc">La Roche-Posay philosophy & 4 core strengths</span>
+          </div>
+        </a>
+
+        <a href="#growth" class="toc-item" data-flip="4">
+          <span class="toc-num">08 – 09</span>
+          <div class="toc-meta">
+            <b class="toc-name">My growth edges</b>
+            <span class="toc-desc">Self-awareness, ownership calibration & focus</span>
+          </div>
+        </a>
+
+        <a href="#unfamiliar" class="toc-item" data-flip="5">
+          <span class="toc-num">10 – 11</span>
+          <div class="toc-meta">
+            <b class="toc-name">Say yes to the unfamiliar</b>
+            <span class="toc-desc">Uncertainty, adventures & Plate III</span>
+          </div>
+        </a>
+
+        <a href="#moments" class="toc-item" data-flip="6">
+          <span class="toc-num">12 – 13</span>
+          <div class="toc-meta">
+            <b class="toc-name">Catch the moment & Photography</b>
+            <span class="toc-desc">Observational eye & Plate IV (Photographs)</span>
+          </div>
+        </a>
+
+        <a href="#making" class="toc-item" data-flip="7">
+          <span class="toc-num">14 – 15</span>
+          <div class="toc-meta">
+            <b class="toc-name">I like making things</b>
+            <span class="toc-desc">Creating out of nothing & Plate V (Craft)</span>
+          </div>
+        </a>
+
+        <a href="#fin" class="toc-item" data-flip="8">
+          <span class="toc-num">16</span>
+          <div class="toc-meta">
+            <b class="toc-name">Fin.</b>
+            <span class="toc-desc">The last page & keeping the conversation going</span>
+          </div>
+        </a>
+      </nav>
+    </aside>
+    <div class="toc-backdrop" id="toc-backdrop"></div>
+
+    <!-- High Resolution Photo Viewer Modal -->
+    <div class="photo-modal" id="photo-modal" aria-hidden="true">
+      <div class="modal-card">
+        <button id="modal-close" class="modal-close-btn" aria-label="Close Photo View">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+        </button>
+        <div class="modal-photo-wrap">
+          <img src="" alt="" id="modal-img" class="modal-img">
+        </div>
+        <div class="modal-details">
+          <h4 id="modal-caption" class="modal-caption"></h4>
+          <p id="modal-note" class="modal-note"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

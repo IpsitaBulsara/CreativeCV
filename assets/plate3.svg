@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dawnSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a3754" />
+      <stop offset="35%" stop-color="#b46c65" />
+      <stop offset="65%" stop-color="#df8a5a" />
+      <stop offset="100%" stop-color="#f7d498" />
+    </linearGradient>
+    <radialGradient id="morningSun" cx="50%" cy="58%" r="35%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#ffd27d" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#df8a5a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Sky gradient -->
+  <rect width="600" height="450" fill="url(#dawnSky)" />
+  <!-- Rising Sun Glow -->
+  <circle cx="300" cy="240" r="140" fill="url(#morningSun)" />
+
+  <!-- Multi-layered Mountain Ridges -->
+  <!-- Distant mountain silhouette -->
+  <polygon points="0,280 90,220 180,250 290,190 380,240 480,210 600,270 600,450 0,450" fill="#6a4457" opacity="0.6" />
+  
+  <!-- Mid-distance ridge -->
+  <polygon points="0,310 130,260 220,290 340,240 430,280 540,250 600,300 600,450 0,450" fill="#50354c" opacity="0.8" />
+
+  <!-- Misty valley cloud deck -->
+  <path d="M0,330 C100,320 180,340 300,325 C420,310 500,335 600,320 L600,360 C500,370 400,350 300,360 C200,370 100,350 0,365 Z" fill="#f4dbbf" opacity="0.55" />
+
+  <!-- Foreground high cliff edge & trail -->
+  <polygon points="0,350 160,330 270,360 380,390 600,410 600,450 0,450" fill="#2d1c25" />
+  <polygon points="0,365 140,350 250,380 360,405 600,425 600,450 0,450" fill="#1f131a" />
+
+  <!-- Solitary Traveler / Explorer standing on overlook looking out -->
+  <g transform="translate(185, 305)" fill="#150d12">
+    <!-- Backpacker silhouette -->
+    <!-- Head with brimmed hat -->
+    <ellipse cx="0" cy="-35" rx="5" ry="4" />
+    <path d="M-8,-36 L8,-36 L5,-39 L-5,-39 Z" />
+    <!-- Torso & backpack -->
+    <path d="M-6,-30 L4,-30 L5,-12 L-7,-12 Z" />
+    <rect x="-11" y="-28" width="6" height="13" rx="2" fill="#150d12" />
+    <!-- Walking staff -->
+    <line x1="8" y1="-32" x2="11" y2="2" stroke="#150d12" stroke-width="1.8" />
+    <!-- Legs -->
+    <line x1="-3" y1="-12" x2="-5" y2="0" stroke="#150d12" stroke-width="3" stroke-linecap="round" />
+    <line x1="2" y1="-12" x2="3" y2="0" stroke="#150d12" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Solitary bird flock drifting in morning thermals -->
+  <g fill="none" stroke="#2d1b28" stroke-width="1.8" stroke-linecap="round">
+    <path d="M430,130 Q435,124 440,130 Q445,124 450,130" />
+    <path d="M465,115 Q470,110 474,115 Q478,110 482,115" />
+    <path d="M495,128 Q498,124 502,128 Q505,124 508,128" />
+    <path d="M455,145 Q458,141 462,145 Q465,141 468,145" />
+  </g>
+
+  <!-- Delicate alpine pine branches on foreground corner -->
+  <g stroke="#1a0f16" stroke-width="2.5" stroke-linecap="round">
+    <line x1="0" y1="430" x2="50" y2="390" />
+    <line x1="20" y1="415" x2="15" y2="395" />
+    <line x1="35" y1="402" x2="45" y2="385" />
+    <line x1="50" y1="390" x2="70" y2="380" />
+  </g>
+
+  <rect x="0" y="0" width="600" height="450" fill="none" stroke="#5a3845" stroke-width="3" opacity="0.35" />
+</svg>

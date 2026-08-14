@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ecd6b7" />
+      <stop offset="60%" stop-color="#f6e8d2" />
+      <stop offset="100%" stop-color="#e2c8a2" />
+    </linearGradient>
+    <linearGradient id="sunHaze" x1="0.8" y1="0.1" x2="0.2" y2="0.9">
+      <stop offset="0%" stop-color="#faeed6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#c89258" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5   0 0 0 0 0.35   0 0 0 0 0.2   0 0 0 0.08 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="600" height="450" fill="url(#skyGrad)" />
+
+  <!-- Distant warm skyline and hills -->
+  <path d="M0,280 Q140,240 280,260 T600,230 L600,450 L0,450 Z" fill="#cfb291" opacity="0.6" />
+  
+  <!-- Architectural Silhouette & Buildings -->
+  <g fill="#936a4c" opacity="0.85">
+    <!-- Left building facade with rustic shutters -->
+    <path d="M40,110 L190,140 L190,450 L40,450 Z" fill="#a47552" />
+    <path d="M190,140 L260,170 L260,450 L190,450 Z" fill="#845a38" />
+    <!-- Roof slope -->
+    <polygon points="30,115 195,135 185,100 35,80" fill="#6f3b20" />
+    
+    <!-- Archway connecting streets -->
+    <path d="M190,260 C190,210 320,210 320,260 L320,330 L190,330 Z" fill="#583b24" />
+    <path d="M205,270 C205,230 305,230 305,270 L305,450 L205,450 Z" fill="#dfc3a0" opacity="0.9" />
+
+    <!-- Distant tower through archway -->
+    <rect x="240" y="220" width="30" height="70" fill="#b89370" />
+    <polygon points="235,220 255,185 275,220" fill="#874e2d" />
+
+    <!-- Windows and warm cafe light -->
+    <rect x="75" y="160" width="34" height="50" rx="3" fill="#3c2617" />
+    <rect x="80" y="165" width="24" height="40" rx="2" fill="#fadca5" opacity="0.8" />
+    <line x1="92" y1="165" x2="92" y2="205" stroke="#3c2617" stroke-width="2" />
+    
+    <rect x="130" y="175" width="34" height="50" rx="3" fill="#3c2617" />
+    <rect x="135" y="180" width="24" height="40" rx="2" fill="#fadca5" opacity="0.8" />
+    <line x1="147" y1="180" x2="147" y2="220" stroke="#3c2617" stroke-width="2" />
+
+    <!-- Right side building with balconies and ivy -->
+    <path d="M370,120 L560,70 L560,450 L370,450 Z" fill="#b08561" />
+    <polygon points="360,125 570,65 560,40 350,95" fill="#784126" />
+    
+    <rect x="410" y="170" width="45" height="65" rx="3" fill="#492d1a" />
+    <rect x="418" y="178" width="29" height="49" fill="#fde8bd" opacity="0.75" />
+    <!-- Balcony Railing -->
+    <rect x="400" y="215" width="65" height="26" fill="none" stroke="#2a1a0f" stroke-width="2.5" />
+    <line x1="410" y1="215" x2="410" y2="241" stroke="#2a1a0f" stroke-width="1.5" />
+    <line x1="425" y1="215" x2="425" y2="241" stroke="#2a1a0f" stroke-width="1.5" />
+    <line x1="440" y1="215" x2="440" y2="241" stroke="#2a1a0f" stroke-width="1.5" />
+    <line x1="455" y1="215" x2="455" y2="241" stroke="#2a1a0f" stroke-width="1.5" />
+  </g>
+
+  <!-- Cobblestone street ground with perspective lines -->
+  <polygon points="0,450 600,450 330,340 180,340" fill="#aa8665" />
+  <!-- Warm cobblestone paving patterns -->
+  <g stroke="#6c4d32" stroke-width="1.2" opacity="0.4" fill="none">
+    <ellipse cx="250" cy="380" rx="20" ry="6" />
+    <ellipse cx="295" cy="378" rx="22" ry="7" />
+    <ellipse cx="345" cy="382" rx="24" ry="7" />
+    <ellipse cx="210" cy="410" rx="30" ry="9" />
+    <ellipse cx="275" cy="412" rx="32" ry="10" />
+    <ellipse cx="345" cy="410" rx="34" ry="10" />
+    <ellipse cx="420" cy="414" rx="36" ry="11" />
+  </g>
+
+  <!-- Hanging ivy & lanterns -->
+  <g fill="#43522f" opacity="0.9">
+    <circle cx="370" cy="140" r="14" />
+    <circle cx="380" cy="155" r="12" />
+    <circle cx="365" cy="170" r="15" />
+    <circle cx="378" cy="190" r="10" />
+    <circle cx="185" cy="160" r="16" />
+    <circle cx="195" cy="180" r="14" />
+  </g>
+  <!-- Warm hanging street lamp -->
+  <path d="M210,250 L235,250 L230,275 L215,275 Z" fill="#2d1c10" />
+  <circle cx="222" cy="282" r="7" fill="#ffe090" filter="drop-shadow(0 0 8px #ffb443)" />
+
+  <!-- Sunlight beam overlay -->
+  <polygon points="600,0 280,0 120,450 480,450" fill="url(#sunHaze)" mix-blend-mode="screen" />
+  
+  <!-- Subtle artistic vignette border -->
+  <rect x="0" y="0" width="600" height="450" fill="none" stroke="#684224" stroke-width="3" opacity="0.35" />
+</svg>

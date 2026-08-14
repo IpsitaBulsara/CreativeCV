@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="100%" height="100%">
+  <defs>
+    <radialGradient id="patina" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#faf2e3" />
+      <stop offset="65%" stop-color="#f2e3c6" />
+      <stop offset="90%" stop-color="#e8cfab" />
+      <stop offset="100%" stop-color="#d6b384" />
+    </radialGradient>
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.45   0 0 0 0 0.32   0 0 0 0 0.18   0 0 0 0.07 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base Parchment Tone -->
+  <rect width="800" height="1100" fill="url(#patina)" />
+
+  <!-- Subtle Watercolor Stain Washes around borders -->
+  <path d="M0,0 Q240,40 500,20 T800,0 L800,120 Q600,80 300,100 T0,70 Z" fill="#d9b688" opacity="0.25" filter="blur(20px)" />
+  <path d="M0,1000 Q300,980 550,1020 T800,1100 L800,1100 L0,1100 Z" fill="#cfa572" opacity="0.3" filter="blur(25px)" />
+  <path d="M0,0 L120,0 Q70,400 90,800 L0,1100 Z" fill="#cda370" opacity="0.2" filter="blur(20px)" />
+  <path d="M680,0 L800,0 L800,1100 L710,1100 Q740,550 680,0 Z" fill="#cda370" opacity="0.2" filter="blur(20px)" />
+
+  <!-- Elegant Inner Border Line Frame -->
+  <rect x="36" y="36" width="728" height="1028" rx="2" fill="none" stroke="#87532d" stroke-width="1.2" opacity="0.38" />
+  <rect x="42" y="42" width="716" height="1016" rx="2" fill="none" stroke="#87532d" stroke-width="0.7" opacity="0.25" stroke-dasharray="8 4" />
+
+  <!-- Vintage Corner Ornaments -->
+  <!-- Top Left -->
+  <g transform="translate(48, 48) scale(0.65)" stroke="#7a4220" stroke-width="1.8" fill="none" opacity="0.55">
+    <path d="M0,0 L40,0 C50,0 55,5 55,15 C55,25 45,30 35,30 C20,30 10,20 10,5" />
+    <path d="M0,0 L0,40 C0,50 5,55 15,55 C25,55 30,45 30,35 C30,20 20,10 5,10" />
+    <circle cx="2" cy="2" r="3" fill="#7a4220" />
+  </g>
+  <!-- Top Right -->
+  <g transform="translate(752, 48) scale(-0.65, 0.65)" stroke="#7a4220" stroke-width="1.8" fill="none" opacity="0.55">
+    <path d="M0,0 L40,0 C50,0 55,5 55,15 C55,25 45,30 35,30 C20,30 10,20 10,5" />
+    <path d="M0,0 L0,40 C0,50 5,55 15,55 C25,55 30,45 30,35 C30,20 20,10 5,10" />
+    <circle cx="2" cy="2" r="3" fill="#7a4220" />
+  </g>
+  <!-- Bottom Left -->
+  <g transform="translate(48, 1052) scale(0.65, -0.65)" stroke="#7a4220" stroke-width="1.8" fill="none" opacity="0.55">
+    <path d="M0,0 L40,0 C50,0 55,5 55,15 C55,25 45,30 35,30 C20,30 10,20 10,5" />
+    <path d="M0,0 L0,40 C0,50 5,55 15,55 C25,55 30,45 30,35 C30,20 20,10 5,10" />
+    <circle cx="2" cy="2" r="3" fill="#7a4220" />
+  </g>
+  <!-- Bottom Right -->
+  <g transform="translate(752, 1052) scale(-0.65, -0.65)" stroke="#7a4220" stroke-width="1.8" fill="none" opacity="0.55">
+    <path d="M0,0 L40,0 C50,0 55,5 55,15 C55,25 45,30 35,30 C20,30 10,20 10,5" />
+    <path d="M0,0 L0,40 C0,50 5,55 15,55 C25,55 30,45 30,35 C30,20 20,10 5,10" />
+    <circle cx="2" cy="2" r="3" fill="#7a4220" />
+  </g>
+
+  <!-- Top Center Header Vignette -->
+  <g transform="translate(400, 42) scale(0.7)" stroke="#7a4220" stroke-width="1.5" fill="none" opacity="0.45">
+    <path d="M-60,0 C-30,-12 -15,12 0,0 C15,12 30,-12 60,0" />
+    <circle cx="0" cy="0" r="3" fill="#7a4220" />
+    <circle cx="-60" cy="0" r="2" fill="#7a4220" />
+    <circle cx="60" cy="0" r="2" fill="#7a4220" />
+  </g>
+  <!-- Bottom Center Vignette -->
+  <g transform="translate(400, 1058) scale(0.7)" stroke="#7a4220" stroke-width="1.5" fill="none" opacity="0.45">
+    <path d="M-60,0 C-30,-12 -15,12 0,0 C15,12 30,-12 60,0" />
+    <circle cx="0" cy="0" r="3" fill="#7a4220" />
+    <circle cx="-60" cy="0" r="2" fill="#7a4220" />
+    <circle cx="60" cy="0" r="2" fill="#7a4220" />
+  </g>
+</svg>
