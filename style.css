@@ -8,8 +8,8 @@
   --leather-base: #3b2516;
   --leather-grad: linear-gradient(160deg, #5b3a22, #3a2415 60%, #2b1a0f);
   
-  --paper-bg: #f4e8d0;
-  --paper-shadow: rgba(74, 55, 40, 0.45);
+  --paper-bg: #f3e6cc url('assets/paper.png') center/100% 100% no-repeat;
+  --paper-shadow: rgba(74, 55, 40, 0.5);
   
   --ink-primary: #24170d;
   --ink-body: #2b1d12;
@@ -228,7 +228,7 @@ button {
   top: 0;
   width: 50%;
   height: 100%;
-  background: #3a2716 url('assets/paper.svg') center/100% 100% no-repeat;
+  background: #3a2716 url('assets/paper.png') center/100% 100% no-repeat;
   pointer-events: none;
 }
 
@@ -324,7 +324,7 @@ button {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
-  background: var(--paper-bg) url('assets/paper.svg') center/100% 100% no-repeat;
+  background: #f3e6cc url('assets/paper.png') center/100% 100% no-repeat;
   color: var(--ink-body);
   font-family: var(--font-hand);
   font-size: 19px;
