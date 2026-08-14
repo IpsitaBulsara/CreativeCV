@@ -899,57 +899,66 @@ button {
    PAGE 16: FIN (CLOSING)
    -------------------------------------------------------------------------- */
 .closing-inner {
-  padding: 95px 76px 60px;
+  padding: 85px 76px 50px;
   align-items: center;
   text-align: center;
 }
 
-.closing-fin {
-  margin-top: 20px;
+.closing-me-title {
+  margin-top: 14px;
   font-family: var(--font-script);
-  font-size: 92px;
-  line-height: 0.9;
+  font-size: 78px;
+  line-height: 0.95;
   color: var(--accent-terra);
 }
 
-.closing-header-rule {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-}
-
-.rule-line {
-  flex: 1;
-  height: 1px;
-}
-
-.rule-left { background: linear-gradient(90deg, transparent, rgba(141, 79, 40, 0.5)); }
-.rule-right { background: linear-gradient(90deg, rgba(141, 79, 40, 0.5), transparent); }
-
-.rule-title {
-  font-family: var(--font-serif);
-  font-size: 10.5px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: rgba(43, 29, 18, 0.78);
-}
-
-.closing-text-block {
-  margin-top: 26px;
-  max-width: 410px;
+.closing-statement-box {
+  margin-top: 20px;
+  max-width: 440px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  align-items: center;
 }
 
-.closing-p {
+.closing-statement {
+  font-family: var(--font-serif);
   font-size: 19px;
-  line-height: 1.9;
+  line-height: 1.8;
   font-weight: 500;
   color: var(--ink-body);
   text-wrap: pretty;
+}
+
+.closing-chapter {
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--ink-body);
+}
+
+.closing-honestly {
+  margin-top: 18px;
+  font-family: var(--font-script);
+  font-size: 48px;
+  line-height: 1.05;
+  color: var(--accent-terra);
+}
+
+.closing-like-it {
+  display: block;
+  font-size: 58px;
+  line-height: 0.95;
+  color: var(--accent-terra);
+}
+
+.closing-signature {
+  margin-top: 14px;
+  font-family: var(--font-script);
+  font-size: 38px;
+  line-height: 1;
+  color: var(--accent-rust);
 }
 
 .wax-seal {
