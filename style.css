@@ -492,7 +492,68 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   PAGE 02: WHAT PULLS ME IN
+   PAGE 02 & 03: ABOUT ME & PORTRAIT
+   -------------------------------------------------------------------------- */
+.about-hero-quote {
+  margin: 22px 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--accent-terra);
+  border-left: 3px solid rgba(141, 79, 40, 0.45);
+  padding-left: 16px;
+}
+
+.about-cards-list {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-card-item {
+  padding: 16px 20px;
+  background: rgba(255, 252, 244, 0.4);
+  border: 1px solid rgba(122, 84, 55, 0.28);
+  border-radius: 2px;
+}
+
+.about-card-title {
+  display: block;
+  font-size: 19.5px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.about-card-text {
+  margin: 7px 0 0;
+  font-size: 19px;
+  line-height: 1.82;
+  font-weight: 500;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.about-card-text strong {
+  color: var(--ink-primary);
+}
+
+.polaroid-portrait {
+  width: 370px;
+  padding: 12px 12px 36px;
+}
+
+.portrait-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 04: WHAT PULLS ME IN
    -------------------------------------------------------------------------- */
 .pulls-grid {
   margin-top: 34px;

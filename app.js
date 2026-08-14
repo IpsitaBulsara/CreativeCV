@@ -5,7 +5,7 @@
 
 class JournalApp {
   constructor() {
-    this.totalLeaves = 8;
+    this.totalLeaves = 9;
     this.flipped = 0;
     this.topLeaf = -1;
     this.isFlipping = false;
@@ -16,14 +16,15 @@ class JournalApp {
     // Page Spread Labels for Indicator
     this.labels = [
       'Cover',
-      'Pages 2 – 3',
-      'Pages 4 – 5',
-      'Pages 6 – 7',
-      'Pages 8 – 9',
-      'Pages 10 – 11',
-      'Pages 12 – 13',
-      'Pages 14 – 15',
-      'Page 16 · Fin'
+      'Pages 2 – 3 · About Me',
+      'Pages 4 – 5 · What Pulls Me In',
+      'Pages 6 – 7 · Beauty & Nature',
+      'Pages 8 – 9 · Brand & Strengths',
+      'Pages 10 – 11 · Growth Edges',
+      'Pages 12 – 13 · The Unfamiliar',
+      'Pages 14 – 15 · Moments',
+      'Pages 16 – 17 · Making',
+      'Page 18 · Fin.'
     ];
 
     // DOM Elements Cache
