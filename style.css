@@ -94,32 +94,9 @@ button {
   max-width: 1320px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   z-index: 120;
   padding: 4px 8px;
-}
-
-.header-left {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-}
-
-.brand-title {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(240, 222, 190, 0.95);
-}
-
-.brand-subtitle {
-  font-family: var(--font-serif);
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(240, 222, 190, 0.55);
 }
 
 .header-controls {
