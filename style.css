@@ -20,13 +20,13 @@
   --accent-line: rgba(122, 84, 55, 0.3);
   
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-hand: 'Caveat', cursive;
+  --font-hand: 'Lora', Georgia, serif;
   --font-script: 'Italianno', cursive;
-  
-  --book-width: 1320px;
-  --book-height: 920px;
-  --leaf-width: 660px;
-  --leaf-height: 920px;
+
+  --book-width: 1520px;
+  --book-height: 1060px;
+  --leaf-width: 760px;
+  --leaf-height: 1060px;
   
   --ease-page: cubic-bezier(0.44, 0.06, 0.24, 1);
   --flip-duration: 1.15s;
@@ -74,7 +74,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   App Container & Header
+   App Container
    -------------------------------------------------------------------------- */
 #app-root {
   width: 100vw;
@@ -89,71 +89,6 @@ button {
   overflow: hidden;
   padding: 10px 14px;
 }
-
-.app-header {
-  width: 100%;
-  max-width: 1320px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  z-index: 120;
-  padding: 4px 8px;
-  flex: none;
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ctrl-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 14px;
-  background: rgba(240, 222, 190, 0.08);
-  border: 1px solid rgba(240, 222, 190, 0.24);
-  border-radius: 4px;
-  color: rgba(240, 222, 190, 0.82);
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: all 0.25s ease;
-}
-
-.ctrl-btn:hover {
-  background: rgba(240, 222, 190, 0.18);
-  border-color: rgba(240, 222, 190, 0.45);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.ctrl-btn.active {
-  background: rgba(168, 102, 60, 0.35);
-  border-color: rgba(240, 222, 190, 0.5);
-  color: #ffecd2;
-}
-
-.ctrl-icon {
-  width: 15px;
-  height: 15px;
-}
-
-/* Sound Icon Toggles */
-.ctrl-btn .icon-sound-off { display: none; }
-.ctrl-btn:not(.active) .icon-sound-on { display: none; }
-.ctrl-btn:not(.active) .icon-sound-off { display: block; }
-
-/* Autoplay Icon Toggles */
-.ctrl-btn .icon-pause { display: none; }
-.ctrl-btn.playing .icon-play { display: none; }
-.ctrl-btn.playing .icon-pause { display: block; }
-
-/* Fullscreen Icon Toggles */
-.ctrl-btn .icon-fs-exit { display: none; }
-:fullscreen .ctrl-btn .icon-fs-enter { display: none; }
-:fullscreen .ctrl-btn .icon-fs-exit { display: block; }
 
 /* --------------------------------------------------------------------------
    Stage & 3D Flipbook Core
@@ -177,6 +112,7 @@ button {
 .book-scaler {
   width: var(--book-width);
   height: var(--book-height);
+  flex: none;
   position: relative;
   transform-origin: center center;
   transition: transform 0.2s ease-out;
@@ -546,14 +482,9 @@ button {
   color: var(--ink-primary);
 }
 
-.polaroid-portrait {
-  width: 370px;
-  padding: 12px 12px 36px;
-}
-
 .portrait-img {
   width: 100%;
-  max-height: 480px;
+  max-height: 600px;
   object-fit: cover;
   border-radius: 1px;
 }
@@ -603,7 +534,7 @@ button {
 
 .polaroid-frame {
   margin-top: 20px;
-  width: 416px;
+  width: 500px;
   padding: 12px 12px 34px;
   background: rgba(255, 252, 244, 0.88);
   box-shadow: 0 10px 24px rgba(60, 40, 25, 0.35),
@@ -629,6 +560,61 @@ button {
   border-radius: 1px;
   mix-blend-mode: multiply;
 }
+
+/* Multi-photo collage grid (Plate IV) */
+.photo-collage-grid {
+  margin-top: 20px;
+  width: 380px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.polaroid-tile {
+  width: 100%;
+  margin-top: 0;
+  padding: 6px 6px 6px;
+}
+
+.polaroid-tile:hover {
+  z-index: 5;
+}
+
+.polaroid-tile .polaroid-img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  mix-blend-mode: normal;
+}
+
+/* Creative mosaic collage grid, variable tile sizes (Plate II) */
+.creative-collage-grid {
+  margin-top: 20px;
+  width: 620px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 145px;
+  grid-auto-flow: dense;
+  gap: 14px;
+}
+
+.creative-collage-grid .polaroid-tile {
+  height: 100%;
+}
+
+.creative-collage-grid .polaroid-tile .polaroid-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  mix-blend-mode: normal;
+}
+
+.tile-2x2 { grid-column: span 2; grid-row: span 2; }
+.tile-2x1 { grid-column: span 2; grid-row: span 1; }
+.tile-1x2 { grid-column: span 1; grid-row: span 2; }
+.tile-1x1 { grid-column: span 1; grid-row: span 1; }
 
 .photo-expand-badge {
   position: absolute;
@@ -1385,22 +1371,10 @@ button {
    Responsive Layout & Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .app-header {
-    padding: 2px 4px;
-  }
-  
   .brand-subtitle {
     display: none;
   }
-  
-  .btn-label {
-    display: none;
-  }
-  
-  .ctrl-btn {
-    padding: 7px 9px;
-  }
-  
+
   .footer-shortcuts-hint {
     display: none;
   }
@@ -1420,7 +1394,7 @@ button {
     height: auto !important;
   }
   
-  .app-header, .app-footer, .toc-drawer, .toc-backdrop, .turn-click-zone, .book-spine, .book-cover-back {
+  .app-footer, .toc-drawer, .toc-backdrop, .turn-click-zone, .book-spine, .book-cover-back {
     display: none !important;
   }
   

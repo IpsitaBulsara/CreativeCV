@@ -174,8 +174,8 @@ class JournalApp {
       const stageH = stage.clientHeight;
       
       // Target book dimensions including 3D leather margins
-      const targetW = 1368;
-      const targetH = 956;
+      const targetW = 1564;
+      const targetH = 1096;
       
       const scaleX = (stageW - 12) / targetW;
       const scaleY = (stageH - 12) / targetH;
