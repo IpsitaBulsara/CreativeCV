@@ -14,7 +14,7 @@
         
         body {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            background: linear-gradient(135deg, #8B5A5A 0%, #6B4C47 50%, #4A3635 100%);
+            background: linear-gradient(135deg, #4A3635 0%, #6B4C47 50%, #8B5A5A 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -31,15 +31,15 @@
         }
 
         .journal-book {
-            background: linear-gradient(135deg, #D4A5A5 0%, #C9938F 100%);
-            border-radius: 20px;
+            background: linear-gradient(135deg, #D4A5A5 0%, #C9938F 50%, #BF8B86 100%);
+            border-radius: 0px;
             padding: 50px 45px;
             box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.5),
-                inset -10px 0 20px rgba(0, 0, 0, 0.2),
-                inset 10px 0 20px rgba(255, 255, 255, 0.1);
+                0 35px 70px rgba(0, 0, 0, 0.6),
+                inset -12px 0 25px rgba(0, 0, 0, 0.25),
+                inset 12px 0 25px rgba(255, 255, 255, 0.08);
             position: relative;
-            border: 2px solid #A88080;
+            border: 3px solid #8B6B60;
         }
 
         .journal-book::before {
@@ -48,49 +48,47 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 8px;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent);
-            border-radius: 20px 0 0 20px;
+            width: 10px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent);
         }
 
         .journal-book::after {
             content: '';
             position: absolute;
-            left: 12px;
-            top: 20px;
-            bottom: 20px;
-            width: 3px;
+            left: 14px;
+            top: 25px;
+            bottom: 25px;
+            width: 2px;
             background: repeating-linear-gradient(
                 0deg,
-                rgba(139, 69, 69, 0.3) 0px,
-                rgba(139, 69, 69, 0.3) 2px,
-                transparent 2px,
-                transparent 8px
+                rgba(90, 58, 53, 0.4) 0px,
+                rgba(90, 58, 53, 0.4) 3px,
+                transparent 3px,
+                transparent 10px
             );
-            border-radius: 2px;
         }
 
         .bookmark {
             position: absolute;
-            right: -5px;
+            right: -8px;
             top: 30%;
-            width: 35px;
-            height: 140px;
-            background: linear-gradient(90deg, #D4A5A5, #E8C4B4);
-            border-radius: 3px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            width: 40px;
+            height: 160px;
+            background: linear-gradient(90deg, #A88080, #C4A090);
+            box-shadow: -3px 0 8px rgba(0, 0, 0, 0.3);
             transform: rotate(-5deg);
+            border: 1px solid #8B6B60;
         }
 
         .bookmark::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 25px;
-            height: 18px;
-            background: linear-gradient(180deg, #D4A5A5, #A88080);
+            width: 28px;
+            height: 20px;
+            background: linear-gradient(180deg, #A88080, #8B6B60);
             clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
         }
 
@@ -103,9 +101,10 @@
         .decorative-top {
             font-size: 2.2em;
             letter-spacing: 0.3em;
-            color: rgba(107, 76, 71, 0.6);
+            color: rgba(90, 58, 53, 0.7);
             margin-bottom: 25px;
             font-weight: 400;
+            text-transform: uppercase;
         }
 
         .title {
@@ -130,13 +129,13 @@
 
         .divider {
             width: 120px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.4), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.5), transparent);
             margin: 30px auto;
         }
 
         .heart {
-            color: #A88080;
+            color: #8B6B60;
             font-size: 1.3em;
             margin: 0 12px;
         }
@@ -153,32 +152,29 @@
         .decorative-elements {
             position: absolute;
             font-size: 3.5em;
-            opacity: 0.15;
+            opacity: 0.12;
             font-weight: 300;
+            color: #5A3A35;
         }
 
         .element-top-left {
-            top: 15px;
-            left: 15px;
-            color: #5A3A35;
+            top: 18px;
+            left: 18px;
         }
 
         .element-top-right {
-            top: 15px;
-            right: 15px;
-            color: #5A3A35;
+            top: 18px;
+            right: 18px;
         }
 
         .element-bottom-left {
-            bottom: 15px;
-            left: 15px;
-            color: #5A3A35;
+            bottom: 18px;
+            left: 18px;
         }
 
         .element-bottom-right {
-            bottom: 15px;
-            right: 15px;
-            color: #5A3A35;
+            bottom: 18px;
+            right: 18px;
         }
 
         .cta-button {
@@ -188,21 +184,21 @@
             background: linear-gradient(135deg, #8B5A5A, #6B4C47);
             color: #F5E6E0;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 0px;
             font-size: 1.2em;
             letter-spacing: 0.1em;
-            border: 2px solid #6B4C47;
+            border: 2px solid #5A3A35;
             transition: all 0.3s ease;
             cursor: pointer;
             text-transform: uppercase;
             font-weight: 500;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
             background: linear-gradient(135deg, #6B4C47, #5A3A35);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         .footer {
@@ -211,7 +207,7 @@
             width: 100%;
             text-align: center;
             font-size: 0.95em;
-            color: rgba(90, 58, 53, 0.5);
+            color: rgba(90, 58, 53, 0.6);
             letter-spacing: 0.1em;
         }
 
