@@ -38,7 +38,7 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
       <div onClick="{{ onNext }}" style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:70;cursor:e-resize"></div>
 
       <!-- LEAF 0 : cover / p02 what pulls me in -->
-      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf0Transform }}">
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf0Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf0Transform }}">
         <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
           <div style="position:absolute;inset:0;padding:150px 92.5px 87.5px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;color:#2b1d12;font-family:'Caveat',cursive">
             <div style="font:400 18.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.5em;color:#94512a">✦ ❧ ✦</div>
@@ -70,7 +70,7 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
       </div>
 
       <!-- LEAF 1 : PLATE travel / p04 beauty -->
-      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf1Transform }}">
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf1Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf1Transform }}">
         <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
           <div style="position:absolute;inset:0;padding:97.5px 90px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
             <div style="font:400 13.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate I · Places</div>
@@ -98,7 +98,7 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
       </div>
 
       <!-- LEAF 2 : PLATE nature / p06 brand -->
-      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf2Transform }}">
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf2Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf2Transform }}">
         <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
           <div style="position:absolute;inset:0;padding:97.5px 90px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
             <div style="font:400 13.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate II · Nature</div>
@@ -130,7 +130,7 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
       </div>
 
       <!-- LEAF 3 : p07 strengths / p08 growth I -->
-      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf3Transform }}">
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf3Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf3Transform }}">
         <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
           <div style="position:absolute;inset:0;padding:100px 82.5px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
             <div style="display:flex;align-items:baseline;gap:17.5px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:13.75px">
@@ -173,7 +173,7 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
       </div>
 
       <!-- LEAF 4 : p09 growth II / p10 unfamiliar -->
-      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf4Transform }}">
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf4Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf4Transform }}">
         <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
           <div style="position:absolute;inset:0;padding:100px 82.5px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
             <div style="display:flex;align-items:baseline;gap:17.5px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:13.75px">
@@ -214,11 +214,119 @@ button{font-family:'Cormorant Garamond',Georgia,serif}
         </div>
       </div>
 
+      <!-- LEAF 5 : p11 about me / p12 what stays with me -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:{{ leaf5Z }};transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ leaf5Transform }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 20px 0 37.5px -20px rgba(141,79,40,.3)">
+          <div style="position:absolute;inset:0;padding:100px 82.5px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
+            <div style="display:flex;align-items:baseline;gap:17.5px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:13.75px">
+              <span style="font:400 15px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">11</span>
+              <h2 style="margin:0;font:500 40px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">About me</h2>
+            </div>
+            <p style="margin:37.5px 0 0;font:italic 400 23.75px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">I'm most myself when I'm paying close attention.</p>
+            <p style="margin:22.5px 0 0;font:500 23.75px/1.86 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I've always been drawn to the quiet details: the way a place carries its own mood, the way a person lights up when they feel understood, the way an idea changes shape when you stay with it a little longer.</p>
+            <p style="margin:17.5px 0 0;font:500 23.75px/1.86 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Curiosity is the thread that runs through most of my choices. It makes me want to see more of the world, ask better questions, and keep growing into someone with more perspective and more care.</p>
+            <div style="margin-top:27.5px;padding:26.25px 30px;border:1px solid rgba(122,84,55,.26);background:rgba(255,252,244,.3)">
+              <div style="font:400 13.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;text-transform:uppercase;color:#94512a">What matters to me</div>
+              <p style="margin:13.75px 0 0;font:500 23.75px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Creating with intention. Seeing beauty without needing to force it. Becoming better without losing softness. Making people feel seen in the process.</p>
+            </div>
+            <div style="margin-top:auto;text-align:center;font:400 13.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 11 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -20px 0 37.5px -20px rgba(141,79,40,.3)">
+          <div style="position:absolute;inset:0;padding:100px 82.5px 77.5px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:23.75px">
+            <div style="display:flex;align-items:baseline;gap:17.5px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:13.75px">
+              <span style="font:400 15px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">12</span>
+              <h2 style="margin:0;font:500 37.5px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">What stays with me</h2>
+            </div>
+            <div style="margin-top:32.5px;display:flex;flex-direction:column;gap:21.25px">
+              <div><b style="display:block;font:700 24.375px/1.4 'Caveat',cursive;color:#24170d">Creativity</b><p style="margin:6.25px 0 0;font:500 22.5px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Not just as expression, but as a way of noticing possibilities that weren't obvious at first.</p></div>
+              <div><b style="display:block;font:700 24.375px/1.4 'Caveat',cursive;color:#24170d">Growth</b><p style="margin:6.25px 0 0;font:500 22.5px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I want my life to keep expanding my perspective — through new work, new questions, and new places.</p></div>
+              <div><b style="display:block;font:700 24.375px/1.4 'Caveat',cursive;color:#24170d">People</b><p style="margin:6.25px 0 0;font:500 22.5px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">If someone leaves a conversation with me feeling more understood, more encouraged, or more themselves, that matters deeply to me.</p></div>
+            </div>
+            <div style="margin-top:25px;padding-top:18.75px;border-top:1px solid rgba(122,84,55,.28);font:500 24.375px/1.72 'Caveat',cursive;color:#5f3a1d;text-wrap:pretty">I think the best stories — and the best work — come from staying curious enough to keep learning, and human enough to let that learning deepen how you care.</div>
+            <div style="margin-top:auto;text-align:center;font:400 13.75px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 12 —</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
 </div>
 
 </x-dc>
+<script data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.totalLeaves = 6;
+    this.bookWidth = 1650;
+    this.bookHeight = 1150;
+    this.state = {
+      currentLeaf: 0,
+      viewportWidth: typeof window !== 'undefined' ? window.innerWidth : this.bookWidth,
+      viewportHeight: typeof window !== 'undefined' ? window.innerHeight : this.bookHeight
+    };
+    this.handleResize = this.handleResize.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleResize() {
+    this.setState({
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight
+    });
+  }
+
+  handleKeyDown(event) {
+    if (event.key === 'ArrowRight') this.goNext();
+    if (event.key === 'ArrowLeft') this.goPrev();
+  }
+
+  goNext() {
+    this.setState((prev) => ({
+      currentLeaf: Math.min(prev.currentLeaf + 1, this.totalLeaves)
+    }));
+  }
+
+  goPrev() {
+    this.setState((prev) => ({
+      currentLeaf: Math.max(prev.currentLeaf - 1, 0)
+    }));
+  }
+
+  renderVals() {
+    const { currentLeaf, viewportWidth, viewportHeight } = this.state;
+    const availableWidth = Math.max(viewportWidth - 70, 420);
+    const availableHeight = Math.max(viewportHeight - 180, 320);
+    const scale = Math.min(1, availableWidth / this.bookWidth, availableHeight / this.bookHeight);
+    const vals = {
+      scale,
+      boxW: `${this.bookWidth * scale}px`,
+      boxH: `${this.bookHeight * scale}px`,
+      onNext: () => this.goNext(),
+      onPrev: () => this.goPrev()
+    };
+
+    for (let i = 0; i < this.totalLeaves; i += 1) {
+      vals[`leaf${i}Transform`] = currentLeaf > i ? 'rotateY(-180deg)' : 'rotateY(0deg)';
+      vals[`leaf${i}Z`] = currentLeaf > i ? i + 1 : this.totalLeaves - i;
+    }
+
+    return vals;
+  }
+}
+</script>
 </body>
 </html>
