@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italianno&display=swap" rel="stylesheet"><style>
+html,body{margin:0;padding:0}
+body{background:#1d140d;-webkit-font-smoothing:antialiased}
+a{color:#94512a;text-decoration:none}
+a:hover{color:#5f3a1d}
+button{font-family:'Cormorant Garamond',Georgia,serif}
+::selection{background:rgba(168,102,60,.28)}
+</style></helmet>
+
+<div style="min-height:100vh;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:40px 20px;box-sizing:border-box;background:radial-gradient(120% 90% at 50% 15%, #4a3320 0%, #2a1c12 55%, #15100a 100%)">
+
+  <div style="width:1320px;max-width:100%;display:flex;align-items:baseline;justify-content:space-between;color:rgba(240,222,190,.55);font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.34em;text-transform:uppercase">
+    <span>Ipsita — a creative CV, kept as a journal</span>
+    <span>Click a page, or use ← →</span>
+  </div>
+
+  <div style="flex:none;width:{{ boxW }};height:{{ boxH }}">
+    <div style="position:relative;width:1320px;height:920px;perspective:2600px;perspective-origin:50% 42%;transform:scale({{ scale }});transform-origin:top left">
+
+      <div style="position:absolute;top:-16px;left:-22px;right:-22px;bottom:-18px;border-radius:6px;background:linear-gradient(160deg,#5b3a22,#3a2415 60%,#2b1a0f);box-shadow:0 44px 60px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,225,180,.09),inset 0 2px 0 rgba(255,225,180,.06)"></div>
+
+      <div style="position:absolute;top:0;left:0;width:50%;height:100%;background:#3a2716 url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -18px 0 34px -16px rgba(40,26,15,.6)"></div>
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;background:#3a2716 url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 18px 0 34px -16px rgba(40,26,15,.6)"></div>
+
+      <div style="position:absolute;top:0;bottom:0;left:50%;width:34px;margin-left:-17px;z-index:60;pointer-events:none;background:linear-gradient(90deg,rgba(56,38,22,0) 0%,rgba(56,38,22,.34) 38%,rgba(56,38,22,.46) 50%,rgba(56,38,22,.34) 62%,rgba(56,38,22,0) 100%)"></div>
+
+      <div onClick="{{ onPrev }}" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:70;cursor:w-resize"></div>
+      <div onClick="{{ onNext }}" style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:70;cursor:e-resize"></div>
+
+      <!-- LEAF 0 : cover / p02 what pulls me in -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t0 }};z-index:{{ z0 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:120px 74px 70px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 15px 'Cormorant Garamond',Georgia,serif;letter-spacing:.5em;color:#94512a">✦ ❧ ✦</div>
+            <div style="margin-top:30px;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.84)">A little more than a CV</div>
+            <h1 style="margin:14px 0 0;font:400 44px/1.05 'Cormorant Garamond',Georgia,serif;color:#24170d;letter-spacing:.02em">Meet<br><span style="display:block;margin-top:2px;font-family:'Italianno',cursive;font-size:104px;line-height:.9;color:#7a3a17">Ipsita</span></h1>
+            <p style="margin:26px 0 0;font:500 20.5px/1.7 'Caveat',cursive;color:#33230f">a journal of the things that make me, me</p>
+            <div style="width:112px;height:1px;margin:30px 0;background:linear-gradient(90deg,transparent,rgba(141,79,40,.6),transparent)"></div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;text-transform:uppercase;color:rgba(43,29,18,.86)">
+              <span>curiosity</span><i style="font-style:normal;color:#94512a">•</i><span>people</span><i style="font-style:normal;color:#94512a">•</i><span>places</span><i style="font-style:normal;color:#94512a">•</i><span>creativity</span>
+            </div>
+            <div style="margin-top:auto;font:500 17.5px 'Caveat',cursive;color:rgba(141,79,40,.8)">turn the page →</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">02</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">What pulls me in</h2>
+            </div>
+            <div style="margin-top:34px;display:flex;flex-direction:column;gap:26px">
+              <div><b style="display:block;font:700 20.5px/1.4 'Caveat',cursive;color:#24170d">Seeing the world — really seeing it.</b><p style="margin:7px 0 0;font:500 19px/1.85 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Travel is how I understand that the world is bigger than any single perspective, mine included. I want to experience places firsthand and meet the people who make them what they are.</p></div>
+              <div><b style="display:block;font:700 20.5px/1.4 'Caveat',cursive;color:#24170d">Creating something out of nothing.</b><p style="margin:7px 0 0;font:500 19px/1.85 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">A blank page becoming a sketch, a photograph or an idea gives me a particular kind of joy. I love making.</p></div>
+              <div><b style="display:block;font:700 20.5px/1.4 'Caveat',cursive;color:#24170d">Making people feel seen.</b><p style="margin:7px 0 0;font:500 19px/1.85 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">A remembered detail, a message at the right time or simply making someone smile can change a day. That matters to me.</p></div>
+              <div><b style="display:block;font:700 20.5px/1.4 'Caveat',cursive;color:#24170d">Growing, constantly.</b><p style="margin:7px 0 0;font:500 19px/1.85 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">New skills, new perspectives and new experiences keep me moving. I never want to be finished learning.</p></div>
+            </div>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 2 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 1 : PLATE travel / p04 beauty -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t1 }};z-index:{{ z1 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:78px 72px 62px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate I · Places</div>
+            <div style="margin-top:20px;width:412px;padding:11px 11px 34px;background:rgba(255,252,244,.62);box-shadow:0 8px 22px rgba(60,40,25,.34);transform:rotate(-1.2deg)">
+              <img src="assets/img1.png" style="display:block;width:100%;height:auto;mix-blend-mode:multiply">
+            </div>
+            <div style="margin-top:26px;text-align:center;font-family:'Italianno',cursive;font-size:36px;line-height:1.14;color:#7a3a17">Seeing the world — really seeing it.</div>
+            <div style="margin-top:auto;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 3 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">04</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">What beauty means to me</h2>
+            </div>
+            <p style="margin:30px 0 0;font:italic 400 19px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">Beauty, to me, is natural.</p>
+            <p style="margin:18px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Every flower is beautiful in its own way. Every tree, every waterfall, every mountain, every feather, every animal, every imperfect little thing in nature has its own character.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I've realised that the most beautiful things aren't usually trying to be beautiful. They simply exist as themselves.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">A flower doesn't need to be the biggest flower. A tree doesn't need perfect symmetry. A landscape doesn't need a filter.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">That is what beauty means to me: <strong style="color:#24170d">being fully what you are, with care rather than correction.</strong></p>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 4 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 2 : PLATE nature / p06 brand -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t2 }};z-index:{{ z2 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:78px 72px 62px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate II · Nature</div>
+            <div style="margin-top:20px;width:412px;padding:11px 11px 34px;background:rgba(255,252,244,.62);box-shadow:0 8px 22px rgba(60,40,25,.34);transform:rotate(1.1deg)">
+              <img src="assets/img2.png" style="display:block;width:100%;height:auto;mix-blend-mode:multiply">
+            </div>
+            <blockquote style="margin:26px 0 0;text-align:center;font:italic 400 21px/1.45 'Cormorant Garamond',Georgia,serif;color:#5f3a1d">“Nature doesn't try. It simply is.”</blockquote>
+            <div style="margin-top:auto;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 5 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">06</span>
+              <h2 style="margin:0;font:500 27px/1.15 'Cormorant Garamond',Georgia,serif;color:#24170d">The L'Oréal brand I relate to most</h2>
+            </div>
+            <div style="margin-top:32px;padding:38px 32px;border:1px solid rgba(122,84,55,.32);background:rgba(255,252,244,.34);display:flex;flex-direction:column;align-items:center;text-align:center">
+              <img src="assets/lrp-logo.png" style="display:block;width:184px;height:auto;mix-blend-mode:multiply">
+              <div style="width:64px;height:1px;margin:14px 0 22px;background:rgba(141,79,40,.55)"></div>
+              <p style="margin:0;font:italic 400 18px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">Quiet confidence. Care backed by understanding.</p>
+              <p style="margin:22px 0 0;font:500 19px/1.88 'Caveat',cursive;color:#2b1d12;text-align:left;text-wrap:pretty">What draws me to La Roche-Posay is its philosophy of paying attention to what people genuinely need. It doesn't feel like beauty for the sake of beauty; it feels like care with a purpose.</p>
+              <p style="margin:14px 0 0;font:500 19px/1.88 'Caveat',cursive;color:#2b1d12;text-align:left;text-wrap:pretty">I relate to that restraint. I would rather let something speak through what it actually does than through how loudly it presents itself.</p>
+              <p style="margin:14px 0 0;font:500 19px/1.88 'Caveat',cursive;color:#2b1d12;text-align:left;text-wrap:pretty">There is also something very human about caring for people on the days when they don't feel their best. To me, beauty should make people feel comfortable being themselves — not pressure them into becoming someone else.</p>
+              <div style="margin-top:28px;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;text-transform:uppercase;color:#94512a">Care first. Confidence follows.</div>
+            </div>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 6 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 3 : p07 strengths / p08 growth I -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t3 }};z-index:{{ z3 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">07</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">My strengths</h2>
+            </div>
+            <div style="margin-top:26px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;gap:16px"><span style="flex:none;width:32px;font:italic 400 27px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">01</span><div><b style="display:block;font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I'm comfortable being a beginner.</b><p style="margin:6px 0 0;font:500 19px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I don't mind not knowing things. When I'm dropped into something unfamiliar, I can usually find my footing reasonably quickly — mostly because I'm not embarrassed to ask basic questions or start at the bottom.</p></div></div>
+              <div style="display:flex;gap:16px"><span style="flex:none;width:32px;font:italic 400 27px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">02</span><div><b style="display:block;font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I tend to notice things.</b><p style="margin:6px 0 0;font:500 19px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Small details, a shift in someone's tone, the thing nobody quite said. I think sketching did this to me — you can't draw something until you've actually looked at it properly. It's carried over into how I read situations and people.</p></div></div>
+              <div style="display:flex;gap:16px"><span style="flex:none;width:32px;font:italic 400 27px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">03</span><div><b style="display:block;font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I try not to do things halfway.</b><p style="margin:6px 0 0;font:500 19px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">If I've taken something on, I'd rather give it proper attention than spread myself across too much. I'd like to think people can rely on me to see things through.</p></div></div>
+              <div style="display:flex;gap:16px"><span style="flex:none;width:32px;font:italic 400 27px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">04</span><div><b style="display:block;font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I care about the people I work with.</b><p style="margin:6px 0 0;font:500 19px/1.8 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Not as a strategy — I just do. I remember what people tell me, and I usually notice when someone's having a hard time. I think teams work better when someone's paying attention to that.</p></div></div>
+            </div>
+            <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(122,84,55,.28);font:500 19.5px/1.7 'Caveat',cursive;color:#5f3a1d;text-wrap:pretty">The same thing that makes me over-polish also makes me thorough. I'm not trying to be a different person — just a better-calibrated one.</div>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 7 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">08</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">My growth edges</h2>
+            </div>
+            <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+              <div style="padding:17px 24px;border:1px solid rgba(122,84,55,.26);background:rgba(255,252,244,.3)">
+                <div style="display:flex;align-items:baseline;gap:12px"><span style="font:italic 400 25px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">01</span><b style="font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I can take on too much myself.</b></div>
+                <p style="margin:12px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I tend to take ownership seriously, which sometimes means I try to carry more than I need to. My instinct is often to solve things myself before involving others.</p>
+                <em style="display:block;margin-top:14px;font:italic 400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.24em;text-transform:uppercase;color:#94512a">What I'm doing about it:</em>
+                <p style="margin:7px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I've started involving people earlier and being more deliberate about what actually needs my ownership versus what can be shared. I'm learning that good ownership isn't doing everything yourself — it's making sure the right things get done.</p>
+              </div>
+              <div style="padding:17px 24px;border:1px solid rgba(122,84,55,.26);background:rgba(255,252,244,.3)">
+                <div style="display:flex;align-items:baseline;gap:12px"><span style="font:italic 400 25px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">02</span><b style="font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I can get too absorbed in a problem.</b></div>
+                <p style="margin:12px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">When something genuinely interests me, I can become deeply absorbed in figuring it out. The downside is that I sometimes lose sight of the bigger picture or spend longer than necessary on one part.</p>
+                <em style="display:block;margin-top:14px;font:italic 400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.24em;text-transform:uppercase;color:#94512a">What I'm doing about it:</em>
+                <p style="margin:7px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I now pause at natural checkpoints and ask myself: <i>Is this still the most valuable thing I could be working on?</i> It helps me step back without losing the curiosity that got me there.</p>
+              </div>
+            </div>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 8 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 4 : p09 growth II / p10 unfamiliar -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t4 }};z-index:{{ z4 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">09</span>
+              <h2 style="margin:0;font:italic 400 26px/1.15 'Cormorant Garamond',Georgia,serif;color:rgba(38,25,15,.9)">My growth edges, continued</h2>
+            </div>
+            <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+              <div style="padding:17px 24px;border:1px solid rgba(122,84,55,.26);background:rgba(255,252,244,.3)">
+                <div style="display:flex;align-items:baseline;gap:12px"><span style="font:italic 400 25px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">03</span><b style="font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I don't always speak up immediately.</b></div>
+                <p style="margin:12px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I tend to observe before I speak. I like understanding the context and hearing different perspectives first, but sometimes that means I take longer than I should to put my own view forward.</p>
+                <em style="display:block;margin-top:14px;font:italic 400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.24em;text-transform:uppercase;color:#94512a">What I'm doing about it:</em>
+                <p style="margin:7px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I've started challenging myself to contribute earlier, even if my thought isn't fully formed. I've realised that a perspective doesn't have to be perfect to be useful.</p>
+              </div>
+              <div style="padding:17px 24px;border:1px solid rgba(122,84,55,.26);background:rgba(255,252,244,.3)">
+                <div style="display:flex;align-items:baseline;gap:12px"><span style="font:italic 400 25px/1 'Cormorant Garamond',Georgia,serif;color:rgba(141,79,40,.62)">04</span><b style="font:700 19.5px/1.4 'Caveat',cursive;color:#24170d">I find it difficult to say no to interesting opportunities.</b></div>
+                <p style="margin:12px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I'm naturally curious, so when something new comes up, my first instinct is usually <i>why not?</i> That can sometimes leave me juggling too many things at once.</p>
+                <em style="display:block;margin-top:14px;font:italic 400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.24em;text-transform:uppercase;color:#94512a">What I'm doing about it:</em>
+                <p style="margin:7px 0 0;font:500 19px/1.82 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I now look at what an opportunity will replace before saying yes to it. I'm learning that being curious about everything doesn't mean I have to pursue everything.</p>
+              </div>
+            </div>
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(122,84,55,.28);font:500 19.5px/1.7 'Caveat',cursive;color:#5f3a1d;text-wrap:pretty">I'm not trying to become less curious or less involved — I'm learning to direct those instincts better.</div>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 9 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">10</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">Say yes to the unfamiliar.</h2>
+            </div>
+            <p style="margin:30px 0 0;font:italic 400 19px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">I am down for any new experience.</p>
+            <p style="margin:18px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Put me somewhere I've never been, ask me to try something I've never tried, introduce me to a culture I don't know — I'm in.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">For me, memorable moments usually begin with a little uncertainty. An adventure activity, a new performance, a wildlife sighting, a completely different landscape — I like the feeling of not knowing exactly what comes next.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I don't want a life that feels pre-written. I want stories I couldn't have planned.</p>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 10 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 5 : PLATE experience / p12 catch the moment -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t5 }};z-index:{{ z5 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:78px 72px 62px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate III · The unfamiliar</div>
+            <div style="margin-top:20px;width:412px;padding:11px 11px 34px;background:rgba(255,252,244,.62);box-shadow:0 8px 22px rgba(60,40,25,.34);transform:rotate(-1.4deg)">
+              <img src="assets/img3.png" style="display:block;width:100%;height:auto;mix-blend-mode:multiply">
+            </div>
+            <div style="margin-top:26px;text-align:center;font-family:'Italianno',cursive;font-size:36px;line-height:1.14;color:#7a3a17">New places. New people. New stories.</div>
+            <div style="margin-top:auto;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 11 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">12</span>
+              <h2 style="margin:0;font:500 31px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">Sometimes, I catch the moment.</h2>
+            </div>
+            <p style="margin:30px 0 0;font:italic 400 19px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">A small fun fact.</p>
+            <p style="margin:18px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I sometimes surprise myself by taking genuinely good photographs of nature.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Not for the grid. Not because I planned the shot. Just because something stopped me in my tracks — the light, a feather, a sunset, a tree in bloom — and I happened to have my camera.</p>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 12 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 6 : PLATE photographs / p14 making things -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t6 }};z-index:{{ z6 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:78px 72px 62px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate IV · Photographs</div>
+            <div style="margin-top:20px;width:412px;padding:11px 11px 34px;background:rgba(255,252,244,.62);box-shadow:0 8px 22px rgba(60,40,25,.34);transform:rotate(1.3deg)">
+              <img src="assets/img4.png" style="display:block;width:100%;height:auto;mix-blend-mode:multiply">
+            </div>
+            <div style="margin-top:26px;text-align:center;font-family:'Italianno',cursive;font-size:36px;line-height:1.14;color:#7a3a17">I like keeping proof of the moments I almost walked past.</div>
+            <div style="margin-top:auto;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 13 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:80px 66px 62px;box-sizing:border-box;display:flex;flex-direction:column;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(122,84,55,.3);padding-bottom:11px">
+              <span style="font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.32em;color:#94512a">14</span>
+              <h2 style="margin:0;font:500 32px/1.12 'Cormorant Garamond',Georgia,serif;color:#24170d">I like making things.</h2>
+            </div>
+            <p style="margin:30px 0 0;font:italic 400 19px/1.5 'Cormorant Garamond',Georgia,serif;color:#7a3a17">Creating something out of nothing.</p>
+            <p style="margin:18px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">There is a feeling I chase: the moment a blank page stops being blank.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">Sometimes it becomes a sketch. Sometimes a photograph. Sometimes an idea that didn't exist five minutes ago.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">The medium changes. The instinct doesn't.</p>
+            <p style="margin:14px 0 0;font:500 19px/1.9 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">I also love noticing details — light, colour, texture, expressions, the tiny things other people walk past. Looking closely is part of how I create.</p>
+            <div style="margin-top:auto;text-align:center;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 14 —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAF 7 : PLATE making / p16 closing -->
+      <div style="position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.44,.06,.24,1);transform:{{ t7 }};z-index:{{ z7 }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset 16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:78px 72px 62px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:rgba(43,29,18,.78)">Plate V · Making</div>
+            <div style="margin-top:20px;width:412px;padding:11px 11px 34px;background:rgba(255,252,244,.62);box-shadow:0 8px 22px rgba(60,40,25,.34);transform:rotate(-1deg)">
+              <img src="assets/img5.png" style="display:block;width:100%;height:auto;mix-blend-mode:multiply">
+            </div>
+            <div style="margin-top:26px;text-align:center;font-family:'Italianno',cursive;font-size:36px;line-height:1.14;color:#7a3a17">The medium changes. The instinct doesn't.</div>
+            <div style="margin-top:auto;font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 15 —</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;transform:rotateY(180deg);background:#f3e6cc url('assets/paper.png') center/100% 100% no-repeat;box-shadow:inset -16px 0 30px -16px rgba(74,55,40,.5)">
+          <div style="position:absolute;inset:0;padding:104px 78px 66px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;color:#2b1d12;font-family:'Caveat',cursive;font-size:19px">
+            <div style="font:400 13px 'Cormorant Garamond',Georgia,serif;letter-spacing:.5em;color:#94512a">✦ ❧ ✦</div>
+            <div style="margin-top:22px;font-family:'Italianno',cursive;font-size:88px;line-height:.92;color:#7a3a17">Fin.</div>
+            <div style="margin-top:26px;display:flex;align-items:center;gap:14px;width:100%">
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(141,79,40,.5))"></div>
+              <div style="font:400 10px 'Cormorant Garamond',Georgia,serif;letter-spacing:.4em;text-transform:uppercase;color:rgba(43,29,18,.78)">The last page</div>
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(141,79,40,.5),transparent)"></div>
+            </div>
+            <p style="margin:30px 0 0;max-width:390px;font:500 19px/1.95 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">This is the shortest honest version of me. Not a list of what I've done, but a record of what I notice, what I chase and what I'm still learning to hold more lightly.</p>
+            <p style="margin:22px 0 0;max-width:390px;font:500 19px/1.95 'Caveat',cursive;color:#2b1d12;text-wrap:pretty">If any of it sounds like someone you'd want on your team, I'd love to keep the conversation going.</p>
+            <div style="margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font:400 10px 'Cormorant Garamond',Georgia,serif;letter-spacing:.34em;text-transform:uppercase;color:rgba(43,29,18,.82)">
+              <span>curiosity</span><i style="font-style:normal;color:#94512a">•</i><span>people</span><i style="font-style:normal;color:#94512a">•</i><span>places</span><i style="font-style:normal;color:#94512a">•</i><span>creativity</span>
+            </div>
+            <div style="margin-top:38px;width:64px;height:64px;border-radius:50%;border:1px solid rgba(141,79,40,.5);display:flex;align-items:center;justify-content:center;background:rgba(168,102,60,.07)">
+              <span style="font-family:'Italianno',cursive;font-size:40px;line-height:1;color:rgba(141,79,40,.85)">I</span>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:8px">
+              <div style="font:400 10px 'Cormorant Garamond',Georgia,serif;letter-spacing:.34em;text-transform:uppercase;color:rgba(43,29,18,.66)">Written and assembled by Ipsita</div>
+              <div style="font:400 11px 'Cormorant Garamond',Georgia,serif;letter-spacing:.3em;color:rgba(43,29,18,.66)">— 16 —</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="width:1320px;max-width:100%;display:flex;align-items:center;justify-content:center;gap:26px">
+    <button onClick="{{ onPrev }}" style="padding:9px 20px;background:rgba(240,222,190,.08);border:1px solid rgba(240,222,190,.28);color:rgba(240,222,190,.86);font-size:13px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px" style-hover="background:rgba(240,222,190,.18)">← Back</button>
+    <div style="min-width:150px;text-align:center;font:400 12px 'Cormorant Garamond',Georgia,serif;letter-spacing:.28em;color:rgba(240,222,190,.6)">{{ counter }}</div>
+    <button onClick="{{ onNext }}" style="padding:9px 20px;background:rgba(240,222,190,.08);border:1px solid rgba(240,222,190,.28);color:rgba(240,222,190,.86);font-size:13px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px" style-hover="background:rgba(240,222,190,.18)">Next →</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1080}}">
+const N = 8;
+const LABELS = ['Cover','2 – 3','4 – 5','6 – 7','8 – 9','10 – 11','12 – 13','14 – 15','16'];
+
+class Component extends DCLogic {
+  state = { flipped: 0, top: -1, scale: 1 };
+
+  componentDidMount() {
+    this._fit = () => {
+      const s = Math.min(1, (window.innerWidth - 60) / 1370, (window.innerHeight - 200) / 960);
+      this.setState({ scale: Math.max(0.3, s) });
+    };
+    this._fit();
+    window.addEventListener('resize', this._fit);
+    this._key = (e) => {
+      if (e.key === 'ArrowRight') this.go(1);
+      if (e.key === 'ArrowLeft') this.go(-1);
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._fit);
+    window.removeEventListener('keydown', this._key);
+  }
+
+  go(d) {
+    const f = this.state.flipped + d;
+    if (f < 0 || f > N) return;
+    this.setState({ flipped: f, top: d > 0 ? f - 1 : f });
+  }
+
+  renderVals() {
+    const { flipped, top } = this.state;
+    const v = {
+      scale: this.state.scale,
+      boxW: Math.round(1320 * this.state.scale) + 'px',
+      boxH: Math.round(920 * this.state.scale) + 'px',
+      counter: LABELS[Math.min(flipped, N)],
+      onNext: () => this.go(1),
+      onPrev: () => this.go(-1)
+    };
+    for (let i = 0; i < N; i++) {
+      const isFlipped = i < flipped;
+      v['t' + i] = isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)';
+      v['z' + i] = i === top ? 100 : (isFlipped ? N + i : N - i);
+    }
+    return v;
+  }
+}
+</script>
+</body>
+</html>
