@@ -239,14 +239,22 @@ class JournalApp {
     this.leaves.forEach((leaf, i) => {
       if (!leaf) return;
       const isFlipped = i < this.flipped;
-      
+
       leaf.style.transform = isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)';
-      
+
       if (isTurning && i === this.topLeaf) {
         leaf.style.zIndex = 100;
       } else {
         leaf.style.zIndex = isFlipped ? N + i : N - i;
       }
+
+      // Only the two currently-visible faces should be interactive.
+      // backface-visibility:hidden only hides painting, not hit-testing,
+      // so rotated-away faces can otherwise steal clicks from the visible page.
+      const frontFace = leaf.querySelector('.face-front');
+      const backFace = leaf.querySelector('.face-back');
+      if (frontFace) frontFace.style.pointerEvents = i === this.flipped ? 'auto' : 'none';
+      if (backFace) backFace.style.pointerEvents = i === this.flipped - 1 ? 'auto' : 'none';
     });
 
     // Update Counter Badge

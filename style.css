@@ -197,7 +197,7 @@ button {
 .turn-click-zone {
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 64px;
   height: 100%;
   z-index: 80;
   cursor: pointer;
@@ -971,6 +971,15 @@ button {
   font-size: 40px;
   line-height: 1;
   color: rgba(141, 79, 40, 0.88);
+}
+
+.closing-linkedin {
+  position: relative;
+  z-index: 90;
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.1em;
 }
 
 .closing-footer-box {
