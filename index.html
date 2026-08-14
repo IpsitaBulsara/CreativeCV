@@ -14,7 +14,7 @@
         
         body {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            background: linear-gradient(135deg, #4A3635 0%, #6B4C47 50%, #8B5A5A 100%);
+            background: linear-gradient(135deg, #8B7355 0%, #9D8B7E 50%, #A89589 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -26,20 +26,20 @@
         .journal-container {
             position: relative;
             width: 100%;
-            max-width: 700px;
+            max-width: 850px;
             perspective: 1000px;
         }
 
         .journal-book {
             background: linear-gradient(135deg, #D4A5A5 0%, #C9938F 50%, #BF8B86 100%);
             border-radius: 0px;
-            padding: 50px 45px;
+            padding: 60px 50px;
             box-shadow: 
-                0 35px 70px rgba(0, 0, 0, 0.6),
-                inset -12px 0 25px rgba(0, 0, 0, 0.25),
-                inset 12px 0 25px rgba(255, 255, 255, 0.08);
+                0 40px 80px rgba(0, 0, 0, 0.5),
+                inset -15px 0 30px rgba(0, 0, 0, 0.15),
+                inset 15px 0 30px rgba(255, 255, 255, 0.05);
             position: relative;
-            border: 3px solid #8B6B60;
+            border: 2px solid #9D7E6F;
         }
 
         .journal-book::before {
@@ -48,47 +48,47 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 10px;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent);
+            width: 8px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent);
         }
 
         .journal-book::after {
             content: '';
             position: absolute;
-            left: 14px;
-            top: 25px;
-            bottom: 25px;
+            left: 12px;
+            top: 30px;
+            bottom: 30px;
             width: 2px;
             background: repeating-linear-gradient(
                 0deg,
-                rgba(90, 58, 53, 0.4) 0px,
-                rgba(90, 58, 53, 0.4) 3px,
+                rgba(90, 58, 53, 0.3) 0px,
+                rgba(90, 58, 53, 0.3) 3px,
                 transparent 3px,
-                transparent 10px
+                transparent 12px
             );
         }
 
         .bookmark {
             position: absolute;
             right: -8px;
-            top: 30%;
-            width: 40px;
-            height: 160px;
-            background: linear-gradient(90deg, #A88080, #C4A090);
-            box-shadow: -3px 0 8px rgba(0, 0, 0, 0.3);
+            top: 35%;
+            width: 35px;
+            height: 140px;
+            background: linear-gradient(90deg, #B8948C, #C4A090);
+            box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
             transform: rotate(-5deg);
-            border: 1px solid #8B6B60;
+            border: 1px solid #9D7E6F;
         }
 
         .bookmark::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
-            width: 28px;
-            height: 20px;
-            background: linear-gradient(180deg, #A88080, #8B6B60);
+            width: 24px;
+            height: 16px;
+            background: linear-gradient(180deg, #B8948C, #8B6B60);
             clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
         }
 
@@ -99,10 +99,10 @@
         }
 
         .decorative-top {
-            font-size: 2.2em;
-            letter-spacing: 0.3em;
-            color: rgba(90, 58, 53, 0.7);
-            margin-bottom: 25px;
+            font-size: 1.8em;
+            letter-spacing: 0.25em;
+            color: rgba(90, 58, 53, 0.65);
+            margin-bottom: 20px;
             font-weight: 400;
             text-transform: uppercase;
         }
@@ -111,94 +111,94 @@
             font-family: 'Italianno', cursive;
             font-size: 5.5em;
             color: #5A3A35;
-            margin: 25px 0;
+            margin: 20px 0;
             font-weight: 400;
             letter-spacing: 0.02em;
             line-height: 1.1;
         }
 
         .subtitle {
-            font-size: 1.55em;
+            font-size: 1.4em;
             color: #6B4C47;
             font-style: italic;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             font-weight: 400;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
         }
 
         .divider {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.5), transparent);
-            margin: 30px auto;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.4), transparent);
+            margin: 25px auto;
         }
 
         .heart {
-            color: #8B6B60;
-            font-size: 1.3em;
-            margin: 0 12px;
+            color: #9D7E6F;
+            font-size: 1.2em;
+            margin: 0 10px;
         }
 
         .tagline {
             font-family: 'Caveat', cursive;
-            font-size: 2em;
+            font-size: 1.8em;
             color: #6B4C47;
-            margin: 25px 0;
+            margin: 20px 0;
             font-weight: 500;
             line-height: 1.6;
         }
 
         .decorative-elements {
             position: absolute;
-            font-size: 3.5em;
-            opacity: 0.12;
+            font-size: 3em;
+            opacity: 0.1;
             font-weight: 300;
             color: #5A3A35;
         }
 
         .element-top-left {
-            top: 18px;
-            left: 18px;
+            top: 20px;
+            left: 20px;
         }
 
         .element-top-right {
-            top: 18px;
-            right: 18px;
+            top: 20px;
+            right: 20px;
         }
 
         .element-bottom-left {
-            bottom: 18px;
-            left: 18px;
+            bottom: 20px;
+            left: 20px;
         }
 
         .element-bottom-right {
-            bottom: 18px;
-            right: 18px;
+            bottom: 20px;
+            right: 20px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 18px 60px;
-            margin-top: 35px;
-            background: linear-gradient(135deg, #8B5A5A, #6B4C47);
+            padding: 16px 55px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #9D7E6F, #8B6B60);
             color: #F5E6E0;
             text-decoration: none;
             border-radius: 0px;
-            font-size: 1.2em;
+            font-size: 1.15em;
             letter-spacing: 0.1em;
-            border: 2px solid #5A3A35;
+            border: 2px solid #7A5A52;
             transition: all 0.3s ease;
             cursor: pointer;
             text-transform: uppercase;
             font-weight: 500;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button:hover {
-            background: linear-gradient(135deg, #6B4C47, #5A3A35);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #8B6B60, #7A5A52);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         .footer {
@@ -206,8 +206,8 @@
             bottom: 20px;
             width: 100%;
             text-align: center;
-            font-size: 0.95em;
-            color: rgba(90, 58, 53, 0.6);
+            font-size: 0.9em;
+            color: rgba(90, 58, 53, 0.55);
             letter-spacing: 0.1em;
         }
 
@@ -217,15 +217,15 @@
             }
 
             .subtitle {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
 
             .tagline {
-                font-size: 1.4em;
+                font-size: 1.3em;
             }
 
             .journal-book {
-                padding: 35px 30px;
+                padding: 40px 30px;
             }
 
             .journal-container {
@@ -260,14 +260,14 @@
 
                 <div class="divider"></div>
 
-                <p style="font-family: 'Caveat', cursive; font-size: 1.6em; color: #6B4C47; margin: 25px 0; font-weight: 500;">
+                <p style="font-family: 'Caveat', cursive; font-size: 1.5em; color: #6B4C47; margin: 20px 0; font-weight: 500;">
                     curiosity <span class="heart">•</span> people <span class="heart">•</span> places <span class="heart">•</span> creativity
                 </p>
 
                 <a href="Ipsita Journal CV.dc.html" class="cta-button">Open the Journal</a>
 
                 <div class="footer">
-                    <p style="margin-top: 35px; font-size: 0.9em; letter-spacing: 0.15em;">Written and assembled by Ipsita</p>
+                    <p style="margin-top: 30px; font-size: 0.85em; letter-spacing: 0.15em;">Written and assembled by Ipsita</p>
                 </div>
             </div>
         </div>
