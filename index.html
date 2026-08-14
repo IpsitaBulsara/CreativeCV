@@ -14,7 +14,7 @@
         
         body {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            background: linear-gradient(135deg, #8B7355 0%, #9D8B7E 50%, #A89589 100%);
+            background: linear-gradient(135deg, #6B4423 0%, #8B5A2B 50%, #A0522D 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -31,7 +31,7 @@
         }
 
         .journal-book {
-            background: linear-gradient(135deg, #D4A5A5 0%, #C9938F 50%, #BF8B86 100%);
+            background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, #C4A57B 100%);
             border-radius: 0px;
             padding: 60px 50px;
             box-shadow: 
@@ -39,7 +39,7 @@
                 inset -15px 0 30px rgba(0, 0, 0, 0.15),
                 inset 15px 0 30px rgba(255, 255, 255, 0.05);
             position: relative;
-            border: 2px solid #9D7E6F;
+            border: 3px solid #5C4033;
         }
 
         .journal-book::before {
@@ -74,10 +74,10 @@
             top: 35%;
             width: 35px;
             height: 140px;
-            background: linear-gradient(90deg, #B8948C, #C4A090);
+            background: linear-gradient(90deg, #8B6F47, #A0826D);
             box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
             transform: rotate(-5deg);
-            border: 1px solid #9D7E6F;
+            border: 1px solid #5C4033;
         }
 
         .bookmark::after {
@@ -88,8 +88,71 @@
             transform: translateX(-50%);
             width: 24px;
             height: 16px;
-            background: linear-gradient(180deg, #B8948C, #8B6B60);
+            background: linear-gradient(180deg, #8B6F47, #654321);
             clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+        }
+
+        /* Ornamental decorative borders */
+        .ornamental-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .corner-ornament {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.25;
+        }
+
+        .corner-ornament svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 1px rgba(90, 58, 53, 0.3));
+        }
+
+        .top-left {
+            top: 15px;
+            left: 15px;
+        }
+
+        .top-right {
+            top: 15px;
+            right: 15px;
+            transform: scaleX(-1);
+        }
+
+        .bottom-left {
+            bottom: 15px;
+            left: 15px;
+            transform: scaleY(-1);
+        }
+
+        .bottom-right {
+            bottom: 15px;
+            right: 15px;
+            transform: scale(-1);
+        }
+
+        .side-border-top {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            right: 80px;
+            height: 25px;
+            opacity: 0.2;
+        }
+
+        .side-border-bottom {
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            right: 80px;
+            height: 25px;
+            opacity: 0.2;
+            transform: scaleY(-1);
         }
 
         .journal-content {
@@ -101,7 +164,7 @@
         .decorative-top {
             font-size: 1.8em;
             letter-spacing: 0.25em;
-            color: rgba(90, 58, 53, 0.65);
+            color: rgba(90, 58, 53, 0.8);
             margin-bottom: 20px;
             font-weight: 400;
             text-transform: uppercase;
@@ -110,7 +173,7 @@
         .title {
             font-family: 'Italianno', cursive;
             font-size: 5.5em;
-            color: #5A3A35;
+            color: #3D2817;
             margin: 20px 0;
             font-weight: 400;
             letter-spacing: 0.02em;
@@ -119,7 +182,7 @@
 
         .subtitle {
             font-size: 1.4em;
-            color: #6B4C47;
+            color: #4C3828;
             font-style: italic;
             margin-bottom: 15px;
             font-weight: 400;
@@ -130,12 +193,12 @@
         .divider {
             width: 100px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.5), transparent);
             margin: 25px auto;
         }
 
         .heart {
-            color: #9D7E6F;
+            color: #6B4423;
             font-size: 1.2em;
             margin: 0 10px;
         }
@@ -143,7 +206,7 @@
         .tagline {
             font-family: 'Caveat', cursive;
             font-size: 1.8em;
-            color: #6B4C47;
+            color: #4C3828;
             margin: 20px 0;
             font-weight: 500;
             line-height: 1.6;
@@ -152,53 +215,53 @@
         .decorative-elements {
             position: absolute;
             font-size: 3em;
-            opacity: 0.1;
+            opacity: 0.12;
             font-weight: 300;
-            color: #5A3A35;
+            color: #3D2817;
         }
 
         .element-top-left {
-            top: 20px;
-            left: 20px;
+            top: 40px;
+            left: 30px;
         }
 
         .element-top-right {
-            top: 20px;
-            right: 20px;
+            top: 40px;
+            right: 30px;
         }
 
         .element-bottom-left {
-            bottom: 20px;
-            left: 20px;
+            bottom: 40px;
+            left: 30px;
         }
 
         .element-bottom-right {
-            bottom: 20px;
-            right: 20px;
+            bottom: 40px;
+            right: 30px;
         }
 
         .cta-button {
             display: inline-block;
             padding: 16px 55px;
             margin-top: 30px;
-            background: linear-gradient(135deg, #9D7E6F, #8B6B60);
-            color: #F5E6E0;
+            background: linear-gradient(135deg, #6B4423, #8B5A2B);
+            color: #F5E6D3;
             text-decoration: none;
             border-radius: 0px;
             font-size: 1.15em;
             letter-spacing: 0.1em;
-            border: 2px solid #7A5A52;
+            border: 2px solid #3D2817;
             transition: all 0.3s ease;
             cursor: pointer;
             text-transform: uppercase;
             font-weight: 500;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
-            background: linear-gradient(135deg, #8B6B60, #7A5A52);
+            background: linear-gradient(135deg, #5C3820, #7A4E23);
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .footer {
@@ -207,7 +270,7 @@
             width: 100%;
             text-align: center;
             font-size: 0.9em;
-            color: rgba(90, 58, 53, 0.55);
+            color: rgba(90, 58, 53, 0.65);
             letter-spacing: 0.1em;
         }
 
@@ -231,12 +294,80 @@
             .journal-container {
                 max-width: 100%;
             }
+
+            .corner-ornament {
+                width: 50px;
+                height: 50px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="journal-container">
         <div class="journal-book">
+            <!-- Ornamental corners -->
+            <div class="ornamental-border">
+                <div class="corner-ornament top-left">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 10 Q 20 5 30 10 Q 35 20 30 30 Q 20 35 10 30 Q 5 20 10 10" 
+                              fill="none" stroke="#5C4033" stroke-width="1.5"/>
+                        <circle cx="15" cy="15" r="3" fill="#5C4033"/>
+                        <circle cx="25" cy="12" r="2" fill="#5C4033"/>
+                        <path d="M 12 20 L 28 20" stroke="#5C4033" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="corner-ornament top-right">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 10 Q 20 5 30 10 Q 35 20 30 30 Q 20 35 10 30 Q 5 20 10 10" 
+                              fill="none" stroke="#5C4033" stroke-width="1.5"/>
+                        <circle cx="15" cy="15" r="3" fill="#5C4033"/>
+                        <circle cx="25" cy="12" r="2" fill="#5C4033"/>
+                        <path d="M 12 20 L 28 20" stroke="#5C4033" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="corner-ornament bottom-left">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 10 Q 20 5 30 10 Q 35 20 30 30 Q 20 35 10 30 Q 5 20 10 10" 
+                              fill="none" stroke="#5C4033" stroke-width="1.5"/>
+                        <circle cx="15" cy="15" r="3" fill="#5C4033"/>
+                        <circle cx="25" cy="12" r="2" fill="#5C4033"/>
+                        <path d="M 12 20 L 28 20" stroke="#5C4033" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="corner-ornament bottom-right">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 10 Q 20 5 30 10 Q 35 20 30 30 Q 20 35 10 30 Q 5 20 10 10" 
+                              fill="none" stroke="#5C4033" stroke-width="1.5"/>
+                        <circle cx="15" cy="15" r="3" fill="#5C4033"/>
+                        <circle cx="25" cy="12" r="2" fill="#5C4033"/>
+                        <path d="M 12 20 L 28 20" stroke="#5C4033" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <!-- Top and bottom borders -->
+                <svg class="side-border-top" viewBox="0 0 600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="top-pattern" x="0" y="0" width="60" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 30 5 Q 35 8 30 15 Q 25 8 30 5" fill="none" stroke="#5C4033" stroke-width="1" opacity="0.6"/>
+                            <circle cx="30" cy="20" r="2" fill="#5C4033" opacity="0.5"/>
+                            <path d="M 20 25 L 40 25" stroke="#5C4033" stroke-width="0.8" opacity="0.4"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#top-pattern)"/>
+                </svg>
+
+                <svg class="side-border-bottom" viewBox="0 0 600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="bottom-pattern" x="0" y="0" width="60" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 30 5 Q 35 8 30 15 Q 25 8 30 5" fill="none" stroke="#5C4033" stroke-width="1" opacity="0.6"/>
+                            <circle cx="30" cy="20" r="2" fill="#5C4033" opacity="0.5"/>
+                            <path d="M 20 25 L 40 25" stroke="#5C4033" stroke-width="0.8" opacity="0.4"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#bottom-pattern)"/>
+                </svg>
+            </div>
+
             <div class="decorative-elements element-top-left">✦</div>
             <div class="decorative-elements element-top-right">✦</div>
             <div class="decorative-elements element-bottom-left">✦</div>
@@ -260,7 +391,7 @@
 
                 <div class="divider"></div>
 
-                <p style="font-family: 'Caveat', cursive; font-size: 1.5em; color: #6B4C47; margin: 20px 0; font-weight: 500;">
+                <p style="font-family: 'Caveat', cursive; font-size: 1.5em; color: #4C3828; margin: 20px 0; font-weight: 500;">
                     curiosity <span class="heart">•</span> people <span class="heart">•</span> places <span class="heart">•</span> creativity
                 </p>
 
