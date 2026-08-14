@@ -163,26 +163,36 @@ class JournalApp {
   }
 
   /* --------------------------------------------------------------------------
-     Responsive Scaler Math
+     Responsive Scaler Math (Fit to Page)
      -------------------------------------------------------------------------- */
   setupResizeScaling() {
+    const stage = document.getElementById('stage-container');
     const handleFit = () => {
-      const availW = window.innerWidth - 40;
-      const availH = window.innerHeight - 160;
+      if (!this.scaler || !stage) return;
       
-      const scaleX = availW / 1360;
-      const scaleY = availH / 960;
-      const scale = Math.min(1.0, scaleX, scaleY);
+      const stageW = stage.clientWidth;
+      const stageH = stage.clientHeight;
       
-      const finalScale = Math.max(0.28, scale);
-      if (this.scaler) {
-        this.scaler.style.transform = `scale(${finalScale})`;
-      }
+      // Target book dimensions including 3D leather margins
+      const targetW = 1368;
+      const targetH = 956;
+      
+      const scaleX = (stageW - 12) / targetW;
+      const scaleY = (stageH - 12) / targetH;
+      const scale = Math.min(scaleX, scaleY);
+      
+      // Scale smoothly so book fits entirely within viewport without overflow
+      const finalScale = Math.max(0.2, Math.min(1.05, scale));
+      this.scaler.style.transform = `scale(${finalScale})`;
+      this.scaler.style.transformOrigin = 'center center';
     };
 
     handleFit();
     window.addEventListener('resize', handleFit);
     window.addEventListener('orientationchange', handleFit);
+    if (window.ResizeObserver && stage) {
+      new ResizeObserver(handleFit).observe(stage);
+    }
   }
 
   /* --------------------------------------------------------------------------
