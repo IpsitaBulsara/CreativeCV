@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ipsita — A Creative CV, Kept as a Journal</title>
+  <title>Ipsita Bulsara — A Creative CV, Kept as a Journal</title>
   <meta name="description" content="A creative journal-style CV: A record of curiosity, people, places, and creativity.">
   <meta name="theme-color" content="#1d140d">
 
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Italianno&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=20260815-1">
+  <link rel="stylesheet" href="style.css?v=20260815-2">
 </head>
 <body>
   <div id="app-root">
@@ -38,10 +38,34 @@
           <div class="turn-click-zone right-zone" id="zone-next" title="Next Page (→)" aria-label="Next Page"></div>
 
           <!-- ============================================== -->
-          <!-- LEAF 0 : COVER (Front) / P02 ABOUT ME (Back) -->
+          <!-- LEAF 0 : OUTER COVER (Front) / Ex Libris Bookplate (Back) -->
           <!-- ============================================== -->
           <div class="leaf leaf-0" id="leaf-0">
-            <!-- Front Face: Book Cover (Page 01) -->
+            <!-- Front Face: Outer Leather Cover -->
+            <div class="page-face face-front outer-cover-page">
+              <div class="page-inner outer-cover-inner">
+                <div class="outer-cover-prompt">open the cover →</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Ex Libris Bookplate -->
+            <div class="page-face face-back">
+              <div class="page-inner exlibris-inner">
+                <div class="journal-flourish">✦ ❧ ✦</div>
+                <div class="exlibris-label">Ex Libris</div>
+                <div class="exlibris-name">Ipsita Bulsara</div>
+                <div class="exlibris-tagline">a journal of the things that make me, me</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 1 : TITLE PAGE (Front) / P02 ABOUT ME (Back) -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-1" id="leaf-1">
+            <!-- Front Face: Title Page (Page 01) -->
             <div class="page-face face-front cover-page">
               <div class="page-inner cover-inner">
                 <div class="journal-flourish">✦ ❧ ✦</div>
@@ -49,6 +73,7 @@
                 <h1 class="cover-title">
                   Meet<br>
                   <span class="cover-name">Ipsita</span>
+                  <span class="cover-surname">Bulsara</span>
                 </h1>
                 <p class="cover-tagline">a journal of the things that make me, me</p>
                 <div class="cover-divider"></div>
@@ -71,11 +96,13 @@
                   <h2 class="page-headline">About Me</h2>
                 </div>
 
-                <div class="about-hero-quote">
-                  “Curious by nature. Creative in thought. Driven by impact.”
-                </div>
+                <div class="about-content-center">
+                  <div class="about-hero-quote">
+                    “Curious by nature. Creative in thought. Driven by impact.”
+                  </div>
 
-                <p class="about-card-text about-single-paragraph">My path began <strong>engineering machines at John Deere</strong> — exploring <strong>AI and automation</strong>, and even contributing to a <strong>patent</strong> — before my curiosity pulled me toward <strong>strategy and business</strong>. A <strong>Mechanical Engineering Gold Medalist from NIT Surat</strong>, I'm now an <strong>MBA candidate at IIM Mumbai</strong>. What drives me most is <strong>creating meaningful impact</strong> — for people, businesses and the world around them.</p>
+                  <p class="about-card-text about-single-paragraph">My path began <strong>engineering machines at John Deere</strong> — exploring <strong>AI and automation</strong>, and even contributing to a <strong>patent</strong> — before my curiosity pulled me toward <strong>strategy and business</strong>. A <strong>Mechanical Engineering Gold Medalist from NIT Surat</strong>, I'm now an <strong>MBA candidate at IIM Mumbai</strong>. What drives me most is <strong>creating meaningful impact</strong> — for people, businesses and the world around them.</p>
+                </div>
 
                 <div class="page-footer-num">— 2 —</div>
               </div>
@@ -84,13 +111,13 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 1 : P03 PORTRAIT / P04 WHAT PULLS ME IN -->
+          <!-- LEAF 2 : P03 PORTRAIT / P04 WHAT PULLS ME IN -->
           <!-- ============================================== -->
-          <div class="leaf leaf-1" id="leaf-1">
+          <div class="leaf leaf-2" id="leaf-2">
             <!-- Front Face: Page 03 (Portrait Photo Spread) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
-                <div class="polaroid-frame polaroid-portrait polaroid-rot-1" data-photo="assets/portrait.png" data-caption="Curious by nature. Creative in thought. Driven by impact." data-note="Ipsita — Mechanical Engineering Gold Medalist (NIT Surat) & MBA Candidate (IIM Mumbai).">
+                <div class="polaroid-frame polaroid-portrait polaroid-rot-1" data-photo="assets/portrait.png" data-caption="Curious by nature. Creative in thought. Driven by impact." data-note="Ipsita Bulsara — Mechanical Engineering Gold Medalist (NIT Surat) & MBA Candidate (IIM Mumbai).">
                   <img src="assets/portrait.png" alt="Ipsita Portrait" class="polaroid-img portrait-img">
                   <div class="photo-expand-badge">
                     <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z"/></svg>
@@ -137,9 +164,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 2 : PLATE I (Places) / P06 BEAUTY -->
+          <!-- LEAF 3 : PLATE I (Places) / P06 BEAUTY -->
           <!-- ============================================== -->
-          <div class="leaf leaf-2" id="leaf-2">
+          <div class="leaf leaf-3" id="leaf-3">
             <!-- Front Face: Page 05 (Plate I - Places) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
@@ -180,9 +207,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 3 : PLATE II (Nature) / P08 BRAND -->
+          <!-- LEAF 4 : PLATE II (Nature) / P08 BRAND -->
           <!-- ============================================== -->
-          <div class="leaf leaf-3" id="leaf-3">
+          <div class="leaf leaf-4" id="leaf-4">
             <!-- Front Face: Page 07 (Plate II - Nature) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
@@ -266,9 +293,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 4 : P09 STRENGTHS / P10 GROWTH I -->
+          <!-- LEAF 5 : P09 STRENGTHS / P10 GROWTH I -->
           <!-- ============================================== -->
-          <div class="leaf leaf-4" id="leaf-4">
+          <div class="leaf leaf-5" id="leaf-5">
             <!-- Front Face: Page 09 (My strengths) -->
             <div class="page-face face-front">
               <div class="page-inner">
@@ -357,9 +384,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 5 : P11 GROWTH II / P12 THE UNFAMILIAR -->
+          <!-- LEAF 6 : P11 GROWTH II / P12 THE UNFAMILIAR -->
           <!-- ============================================== -->
-          <div class="leaf leaf-5" id="leaf-5">
+          <div class="leaf leaf-6" id="leaf-6">
             <!-- Front Face: Page 11 (My growth edges, continued) -->
             <div class="page-face face-front">
               <div class="page-inner">
@@ -421,9 +448,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 6 : PLATE III (Unfamiliar) / P14 MOMENTS -->
+          <!-- LEAF 7 : PLATE III (Unfamiliar) / P14 MOMENTS -->
           <!-- ============================================== -->
-          <div class="leaf leaf-6" id="leaf-6">
+          <div class="leaf leaf-7" id="leaf-7">
             <!-- Front Face: Page 13 (Plate III - The unfamiliar) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
@@ -462,9 +489,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 7 : PLATE IV (Photographs) / P16 MAKING -->
+          <!-- LEAF 8 : PLATE IV (Photographs) / P16 MAKING -->
           <!-- ============================================== -->
-          <div class="leaf leaf-7" id="leaf-7">
+          <div class="leaf leaf-8" id="leaf-8">
             <!-- Front Face: Page 15 (Plate IV - Photographs) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
@@ -520,7 +547,7 @@
                 <div class="essay-body">
                   <p class="essay-quote">Creating something out of nothing.</p>
                   <p class="essay-p">There is a feeling I chase: the moment a blank canvas stops being blank.</p>
-                  <p class="essay-p">A hummingbird in acrylic. A vase of flowers. A waterfall painted from a photo I took on a trek. A bottle hand-painted just because it needed some colour. Some days it's paint, other days it's just pencil and paper.</p>
+                  <p class="essay-p">A hummingbird in watercolor. A vase of flowers. A waterfall painted from a photo I took on a trek. A bottle hand-painted just because it needed some colour. Some days it's paint, other days it's just pencil and paper.</p>
                   <p class="essay-p">The medium changes. The instinct doesn't.</p>
                   <p class="essay-p">I'm not classically trained — I paint and sketch for the pause it forces me to take, and because a piece rarely turns out the way I first imagined it. That gap is usually the best part.</p>
                 </div>
@@ -532,9 +559,9 @@
           </div>
 
           <!-- ============================================== -->
-          <!-- LEAF 8 : PLATE V (Making) / P18 FIN (Back Cover) -->
+          <!-- LEAF 9 : PLATE V (Making) / P18 FIN (Back Cover) -->
           <!-- ============================================== -->
-          <div class="leaf leaf-8" id="leaf-8">
+          <div class="leaf leaf-9" id="leaf-9">
             <!-- Front Face: Page 17 (Plate V - Making) -->
             <div class="page-face face-front plate-face">
               <div class="page-inner plate-inner">
@@ -568,7 +595,7 @@
                     <span class="closing-like-it">I like it that way.</span>
                   </div>
                   
-                  <div class="closing-signature">— Ipsita</div>
+                  <div class="closing-signature">— Ipsita Bulsara</div>
                 </div>
 
                 <div class="closing-pillars">
@@ -584,14 +611,37 @@
                 </div>
 
                 <div class="closing-linkedin">
-                  <a href="https://www.linkedin.com/in/ipsita-bulsara" target="_blank" rel="noopener">linkedin.com/in/ipsita-bulsara</a>
+                  Would love to connect with you on <a href="https://www.linkedin.com/in/ipsita-bulsara" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="closing-email">
+                  <a href="mailto:bulsaraipsita@gmail.com">bulsaraipsita@gmail.com</a>
                 </div>
 
                 <div class="closing-footer-box">
-                  <div class="closing-byline">Written and assembled by Ipsita</div>
+                  <div class="closing-byline">Written and assembled by Ipsita Bulsara</div>
                   <div class="page-footer-num">— 18 —</div>
                 </div>
               </div>
+              <div class="page-shadow"></div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- LEAF 10 : Closing Endpaper (Front) / OUTER BACK COVER (Back) -->
+          <!-- ============================================== -->
+          <div class="leaf leaf-10" id="leaf-10">
+            <!-- Front Face: Closing Endpaper -->
+            <div class="page-face face-front">
+              <div class="page-inner exlibris-inner">
+                <div class="journal-flourish">✦ ❧ ✦</div>
+                <div class="closing-endpaper-text">Thank you for reading</div>
+              </div>
+              <div class="page-shadow"></div>
+            </div>
+
+            <!-- Back Face: Outer Leather Back Cover -->
+            <div class="page-face face-back outer-back-cover-page">
+              <div class="page-inner outer-back-cover-inner"></div>
               <div class="page-shadow"></div>
             </div>
           </div>
@@ -615,17 +665,19 @@
           
           <div class="timeline-track" id="timeline-track">
             <div class="timeline-progress" id="timeline-progress"></div>
-            <!-- Interactive page node dots for 9 leaves -->
+            <!-- Interactive page node dots for 11 leaves -->
             <button class="time-node active" data-flip="0" title="Cover"></button>
-            <button class="time-node" data-flip="1" title="Pages 2 – 3: About Me & Portrait"></button>
-            <button class="time-node" data-flip="2" title="Pages 4 – 5: What pulls me in & Plate I"></button>
-            <button class="time-node" data-flip="3" title="Pages 6 – 7: Beauty & Plate II"></button>
-            <button class="time-node" data-flip="4" title="Pages 8 – 9: Brand & Strengths"></button>
-            <button class="time-node" data-flip="5" title="Pages 10 – 11: Growth Edges"></button>
-            <button class="time-node" data-flip="6" title="Pages 12 – 13: The Unfamiliar & Plate III"></button>
-            <button class="time-node" data-flip="7" title="Pages 14 – 15: Moments & Plate IV"></button>
-            <button class="time-node" data-flip="8" title="Pages 16 – 17: Making & Plate V"></button>
-            <button class="time-node" data-flip="9" title="Page 18: Fin."></button>
+            <button class="time-node" data-flip="1" title="Title Page"></button>
+            <button class="time-node" data-flip="2" title="Pages 2 – 3: About Me & Portrait"></button>
+            <button class="time-node" data-flip="3" title="Pages 4 – 5: What pulls me in & Plate I"></button>
+            <button class="time-node" data-flip="4" title="Pages 6 – 7: Beauty & Plate II"></button>
+            <button class="time-node" data-flip="5" title="Pages 8 – 9: Brand & Strengths"></button>
+            <button class="time-node" data-flip="6" title="Pages 10 – 11: Growth Edges"></button>
+            <button class="time-node" data-flip="7" title="Pages 12 – 13: The Unfamiliar & Plate III"></button>
+            <button class="time-node" data-flip="8" title="Pages 14 – 15: Moments & Plate IV"></button>
+            <button class="time-node" data-flip="9" title="Pages 16 – 17: Making & Plate V"></button>
+            <button class="time-node" data-flip="10" title="Page 18: Fin."></button>
+            <button class="time-node" data-flip="11" title="Back Cover"></button>
           </div>
         </div>
 
@@ -655,14 +707,22 @@
 
       <nav class="toc-list" id="toc-list">
         <a href="#cover" class="toc-item active" data-flip="0">
-          <span class="toc-num">01</span>
+          <span class="toc-num">00</span>
           <div class="toc-meta">
             <b class="toc-name">Cover</b>
-            <span class="toc-desc">Meet Ipsita — A Little More Than a CV</span>
+            <span class="toc-desc">The outer leather cover</span>
           </div>
         </a>
 
-        <a href="#about" class="toc-item" data-flip="1">
+        <a href="#title" class="toc-item" data-flip="1">
+          <span class="toc-num">01</span>
+          <div class="toc-meta">
+            <b class="toc-name">Title Page</b>
+            <span class="toc-desc">Meet Ipsita Bulsara — A Little More Than a CV</span>
+          </div>
+        </a>
+
+        <a href="#about" class="toc-item" data-flip="2">
           <span class="toc-num">02 – 03</span>
           <div class="toc-meta">
             <b class="toc-name">About Me</b>
@@ -670,7 +730,7 @@
           </div>
         </a>
 
-        <a href="#pulls" class="toc-item" data-flip="2">
+        <a href="#pulls" class="toc-item" data-flip="3">
           <span class="toc-num">04 – 05</span>
           <div class="toc-meta">
             <b class="toc-name">What pulls me in</b>
@@ -678,7 +738,7 @@
           </div>
         </a>
 
-        <a href="#beauty" class="toc-item" data-flip="3">
+        <a href="#beauty" class="toc-item" data-flip="4">
           <span class="toc-num">06 – 07</span>
           <div class="toc-meta">
             <b class="toc-name">What beauty means to me</b>
@@ -686,7 +746,7 @@
           </div>
         </a>
 
-        <a href="#brand" class="toc-item" data-flip="4">
+        <a href="#brand" class="toc-item" data-flip="5">
           <span class="toc-num">08 – 09</span>
           <div class="toc-meta">
             <b class="toc-name">Brand & Strengths</b>
@@ -694,7 +754,7 @@
           </div>
         </a>
 
-        <a href="#growth" class="toc-item" data-flip="5">
+        <a href="#growth" class="toc-item" data-flip="6">
           <span class="toc-num">10 – 11</span>
           <div class="toc-meta">
             <b class="toc-name">My growth edges</b>
@@ -702,7 +762,7 @@
           </div>
         </a>
 
-        <a href="#unfamiliar" class="toc-item" data-flip="6">
+        <a href="#unfamiliar" class="toc-item" data-flip="7">
           <span class="toc-num">12 – 13</span>
           <div class="toc-meta">
             <b class="toc-name">Say yes to the unfamiliar</b>
@@ -710,7 +770,7 @@
           </div>
         </a>
 
-        <a href="#moments" class="toc-item" data-flip="7">
+        <a href="#moments" class="toc-item" data-flip="8">
           <span class="toc-num">14 – 15</span>
           <div class="toc-meta">
             <b class="toc-name">Catch the moment & Photography</b>
@@ -718,7 +778,7 @@
           </div>
         </a>
 
-        <a href="#making" class="toc-item" data-flip="8">
+        <a href="#making" class="toc-item" data-flip="9">
           <span class="toc-num">16 – 17</span>
           <div class="toc-meta">
             <b class="toc-name">I like making things</b>
@@ -726,11 +786,19 @@
           </div>
         </a>
 
-        <a href="#fin" class="toc-item" data-flip="9">
+        <a href="#fin" class="toc-item" data-flip="10">
           <span class="toc-num">18</span>
           <div class="toc-meta">
             <b class="toc-name">Fin.</b>
             <span class="toc-desc">The last page & personal seal</span>
+          </div>
+        </a>
+
+        <a href="#back-cover" class="toc-item" data-flip="11">
+          <span class="toc-num">19</span>
+          <div class="toc-meta">
+            <b class="toc-name">Back Cover</b>
+            <span class="toc-desc">The outer leather back cover</span>
           </div>
         </a>
       </nav>
@@ -756,6 +824,6 @@
   </div>
 
   <!-- App Script -->
-  <script src="app.js?v=20260815-1"></script>
+  <script src="app.js?v=20260815-2"></script>
 </body>
 </html>

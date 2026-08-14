@@ -5,7 +5,7 @@
 
 class JournalApp {
   constructor() {
-    this.totalLeaves = 9;
+    this.totalLeaves = 11;
     this.flipped = 0;
     this.topLeaf = -1;
     this.isFlipping = false;
@@ -16,6 +16,7 @@ class JournalApp {
     // Page Spread Labels for Indicator
     this.labels = [
       'Cover',
+      'Title Page',
       'Pages 2 – 3 · About Me',
       'Pages 4 – 5 · What Pulls Me In',
       'Pages 6 – 7 · Beauty & Nature',
@@ -24,11 +25,13 @@ class JournalApp {
       'Pages 12 – 13 · The Unfamiliar',
       'Pages 14 – 15 · Moments',
       'Pages 16 – 17 · Making',
-      'Page 18 · Fin.'
+      'Page 18 · Fin.',
+      'Back Cover'
     ];
 
     // DOM Elements Cache
     this.scaler = document.getElementById('book-scaler');
+    this.bookCase = document.getElementById('book-case');
     this.leaves = Array.from({ length: this.totalLeaves }, (_, i) => document.getElementById(`leaf-${i}`));
     this.counterBadge = document.getElementById('page-counter-badge');
     this.timelineProgress = document.getElementById('timeline-progress');
@@ -234,6 +237,13 @@ class JournalApp {
 
   updateBookState(isTurning) {
     const N = this.totalLeaves;
+
+    // At the outer front/back cover, hide the blank facing underlay so
+    // the cover reads as a single closed surface rather than a spread.
+    if (this.bookCase) {
+      this.bookCase.classList.toggle('at-cover', this.flipped === 0);
+      this.bookCase.classList.toggle('at-back-cover', this.flipped === N);
+    }
 
     // Apply 3D Rotation & Z-Index to each leaf
     this.leaves.forEach((leaf, i) => {
