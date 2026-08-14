@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ipsita Journal CV - Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italianno&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,103 +14,262 @@
         
         body {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            background: linear-gradient(135deg, #1d140d 0%, #3a2415 100%);
+            background: linear-gradient(135deg, #8B5A5A 0%, #6B4C47 50%, #4A3635 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow: hidden;
         }
-        
-        .container {
+
+        .journal-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            perspective: 1000px;
+        }
+
+        .journal-book {
+            background: linear-gradient(135deg, #D4A5A5 0%, #C9938F 100%);
+            border-radius: 15px;
+            padding: 40px 35px;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                inset -10px 0 20px rgba(0, 0, 0, 0.2),
+                inset 10px 0 20px rgba(255, 255, 255, 0.1);
+            position: relative;
+            border: 2px solid #A88080;
+        }
+
+        .journal-book::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), transparent);
+            border-radius: 15px 0 0 15px;
+        }
+
+        .journal-book::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(139, 69, 69, 0.3) 0px,
+                rgba(139, 69, 69, 0.3) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            border-radius: 2px;
+        }
+
+        .bookmark {
+            position: absolute;
+            right: -5px;
+            top: 30%;
+            width: 30px;
+            height: 120px;
+            background: linear-gradient(90deg, #D4A5A5, #E8C4B4);
+            border-radius: 3px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            transform: rotate(-5deg);
+        }
+
+        .bookmark::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 15px;
+            background: linear-gradient(180deg, #D4A5A5, #A88080);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+        }
+
+        .journal-content {
             text-align: center;
-            color: rgba(240, 222, 190, 0.9);
-            max-width: 600px;
+            position: relative;
+            z-index: 2;
         }
-        
-        h1 {
-            font-size: 5em;
-            font-weight: 400;
-            margin-bottom: 10px;
-            letter-spacing: 0.05em;
-            color: rgba(240, 222, 190, 0.95);
-        }
-        
-        .subtitle {
+
+        .decorative-top {
             font-size: 1.8em;
-            font-weight: 300;
-            margin-bottom: 40px;
-            color: rgba(240, 222, 190, 0.7);
-            letter-spacing: 0.08em;
-        }
-        
-        p {
-            font-size: 1.4em;
-            line-height: 1.8;
+            letter-spacing: 0.3em;
+            color: rgba(107, 76, 71, 0.6);
             margin-bottom: 20px;
-            color: rgba(240, 222, 190, 0.8);
-            font-family: 'Caveat', cursive;
+            font-weight: 400;
         }
-        
-        .button {
+
+        .title {
+            font-family: 'Italianno', cursive;
+            font-size: 4.5em;
+            color: #5A3A35;
+            margin: 20px 0;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #6B4C47;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(90, 58, 53, 0.4), transparent);
+            margin: 25px auto;
+        }
+
+        .heart {
+            color: #A88080;
+            font-size: 1.2em;
+            margin: 0 10px;
+        }
+
+        .tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6em;
+            color: #6B4C47;
+            margin: 20px 0;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.15;
+            font-weight: 300;
+        }
+
+        .element-top-left {
+            top: 15px;
+            left: 15px;
+            color: #5A3A35;
+        }
+
+        .element-top-right {
+            top: 15px;
+            right: 15px;
+            color: #5A3A35;
+        }
+
+        .element-bottom-left {
+            bottom: 15px;
+            left: 15px;
+            color: #5A3A35;
+        }
+
+        .element-bottom-right {
+            bottom: 15px;
+            right: 15px;
+            color: #5A3A35;
+        }
+
+        .cta-button {
             display: inline-block;
-            padding: 18px 45px;
-            margin: 15px;
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: rgba(240, 222, 190, 0.95);
+            padding: 16px 50px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #8B5A5A, #6B4C47);
+            color: #F5E6E0;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2em;
-            letter-spacing: 0.08em;
-            border: 1px solid rgba(168, 102, 60, 0.5);
+            font-size: 1.05em;
+            letter-spacing: 0.1em;
+            border: 2px solid #6B4C47;
             transition: all 0.3s ease;
             cursor: pointer;
             text-transform: uppercase;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        .button:hover {
-            background: linear-gradient(135deg, #A0522D, #8B4513);
-            box-shadow: 0 10px 30px rgba(141, 79, 40, 0.4);
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #6B4C47, #5A3A35);
             transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
-        
-        .divider {
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(141, 79, 40, 0.6), transparent);
-            margin: 30px auto;
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85em;
+            color: rgba(90, 58, 53, 0.5);
+            letter-spacing: 0.1em;
         }
-        
-        .ornament {
-            font-size: 2em;
-            letter-spacing: 0.3em;
-            margin: 20px 0;
-            color: rgba(148, 81, 42, 0.8);
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 3.2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .journal-book {
+                padding: 30px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="ornament">✦ ❧ ✦</div>
-        
-        <h1>Ipsita Journal CV</h1>
-        <p class="subtitle">A Creative Journal</p>
-        
-        <div class="divider"></div>
-        
-        <p>Welcome to a journal of the things that make me, me.</p>
-        <p>Explore the interactive pages, click to navigate, or use arrow keys to turn the pages.</p>
-        
-        <div style="margin: 40px 0;">
-            <a href="Ipsita Journal CV.dc.html" class="button">Open the Journal</a>
-            <a href="https://github.com/IpsitaBulsara/CreativeCV" class="button">View on GitHub</a>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <div style="margin-top: 50px; font-size: 1.1em; color: rgba(240, 222, 190, 0.6);">
-            <p style="font-size: 1.05em;">Created with curiosity • people • places</p>
-            <p style="font-size: 1em; letter-spacing: 0.2em;">Written and assembled by Ipsita</p>
+    <div class="journal-container">
+        <div class="journal-book">
+            <div class="decorative-elements element-top-left">✦</div>
+            <div class="decorative-elements element-top-right">✦</div>
+            <div class="decorative-elements element-bottom-left">✦</div>
+            <div class="decorative-elements element-bottom-right">✦</div>
+
+            <div class="bookmark"></div>
+
+            <div class="journal-content">
+                <div class="decorative-top">collect beautiful moments</div>
+
+                <div class="title">Journal</div>
+
+                <div class="subtitle">Dreams. Plans. Memories.</div>
+                <div class="subtitle">All the little things</div>
+
+                <div class="divider"></div>
+
+                <div class="tagline">
+                    A journal of the things that make me, me
+                </div>
+
+                <div class="divider"></div>
+
+                <p style="font-family: 'Caveat', cursive; font-size: 1.3em; color: #6B4C47; margin: 20px 0; font-weight: 500;">
+                    curiosity <span class="heart">•</span> people <span class="heart">•</span> places <span class="heart">•</span> creativity
+                </p>
+
+                <a href="Ipsita Journal CV.dc.html" class="cta-button">Open the Journal</a>
+
+                <div class="footer">
+                    <p style="margin-top: 30px; font-size: 0.8em; letter-spacing: 0.15em;">Written and assembled by Ipsita</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
