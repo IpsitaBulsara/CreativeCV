@@ -272,6 +272,12 @@
             background: rgba(212, 175, 120, 0.1);
         }
 
+        .btn-primary-large {
+            padding: 22px 70px;
+            font-size: 1.25em;
+            margin-top: 20px;
+        }
+
         /* Sections */
         section {
             padding: 100px 50px;
@@ -381,6 +387,31 @@
             line-height: 1.6;
         }
 
+        /* Journal Preview Section */
+        #journal-preview {
+            background: linear-gradient(135deg, rgba(45, 22, 35, 0.9) 0%, rgba(70, 30, 50, 0.9) 100%);
+            border-top: 2px solid #D4AF78;
+            border-bottom: 2px solid #D4AF78;
+            text-align: center;
+        }
+
+        .journal-preview-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .journal-preview-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #E8D4B8;
+            margin-bottom: 40px;
+        }
+
+        .journal-preview-text em {
+            color: #D4AF78;
+            font-style: italic;
+        }
+
         /* Footer */
         footer {
             background: rgba(45, 22, 35, 0.95);
@@ -481,8 +512,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#portfolio">Skills</a></li>
+            <li><a href="#journal-preview">Journal</a></li>
         </ul>
     </nav>
 
@@ -571,8 +602,8 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="#about" class="btn">Explore My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#about" class="btn">Explore More</a>
+                    <a href="#journal-preview" class="btn btn-secondary">View My Journal</a>
                 </div>
             </div>
         </div>
@@ -597,7 +628,7 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio">
-        <h2 class="section-title">My Work</h2>
+        <h2 class="section-title">My Skills & Strengths</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
                 <div class="portfolio-icon">🎨</div>
@@ -629,6 +660,22 @@
                 <h3>Growth</h3>
                 <p>Continuously evolving and learning to bring fresh energy and innovative approaches to every endeavor.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Journal Preview Section -->
+    <section id="journal-preview">
+        <h2 class="section-title">My Creative Journal</h2>
+        <div class="journal-preview-content">
+            <p class="journal-preview-text">
+                Beyond a traditional CV, I've created an interactive journal — 
+                <em>a collection of beautiful moments, personal insights, and the things that make me, me.</em>
+            </p>
+            <p class="journal-preview-text">
+                Discover my perspective on curiosity, beauty, growth, and creativity through an immersive, 
+                page-turning experience that blends storytelling with design.
+            </p>
+            <a href="Ipsita Journal CV.dc.html" class="btn btn-primary-large">Open the Full Journal</a>
         </div>
     </section>
 
